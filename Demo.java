@@ -1,25 +1,54 @@
-import java.util.Arrays;
-
+import java.util.*;
+import java.util.ArrayList;
 public class Demo {
-    public static void main(String[] args) {
-        //Array To String Array.toString()
-        int[] numbers = {1,2,3,4,5};
-        String str = Arrays.toString(numbers);
-        System.out.println(str);
+    public static boolean validParenthisis(String s) {
+        //Easy method
+        /* while(true) {
+            if(s.contains("()")) {
+                s = s.replace("()", "");
+            }
+            else if(s.contains("{}")) {
+                s = s.replace("{}", "");
+            }
+            else if(s.contains("[]")) {
+                s = s.replace("[]", "");
+            }
+            else {
+                return s.isEmpty();
+            }
+        } */
+       //method 02
+       Stack<Character> stack = new Stack<>();
+       for(char c: s.toCharArray()) {
+        if( c == '(')
+        stack.push(')');
+        else if(c == '{') 
+        stack.push('}');
+        else if (c == '[')
+        stack.push(']');
+        else if(stack.isEmpty() || stack.pop() != c)
+        return false;
+       }
+       return stack.isEmpty();
+    }
+    public static void plusOne(int[] digits) {
+        int len = digits.length-1;
+        for(int x: digits){ System.out.print(x);}
+        //int temp;
+        List<Integer> arr = new ArrayList<Integer>();
         
-        //Array to Sting.join(" ")
-        String[] names = {"John","Mary","Peter"};
-        String res = String.join(" ",names);
-        System.out.println(res);
-
-        StringBuilder sb = new StringBuilder();
-        for(String name: names) {
-            sb.append(name).append(" ");
+        for(int i=0; i<=len; i++) {
+            if(i==len){
+                //arr.set(len, arr.get(i)+1);
+                digits[i] = digits[i]+1;
+             }
         }
-       System.out.println(sb);
-       String res1 = sb.toString().trim();
-       System.out.println(res1);
-        
-
+        for(int x: digits){ System.out.print(x);}
+    }
+    public static void main(String[] args) {
+        String str = "{{}[](){[()]}";
+        System.out.println(validParenthisis(str));
+        int[] numbers = {1,2,3,4,5};
+        plusOne(numbers);
     }
 }
