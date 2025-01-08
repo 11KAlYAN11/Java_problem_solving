@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.List;
 
 public class StringDemo {
     
@@ -68,6 +69,13 @@ public class StringDemo {
        System.out.println(arry);
        //We can switch implementations easily (ArrayList → LinkedList → Vector) without changing the variable type.
 
-       
+       ArrayList arr = new ArrayList();
+       arr.add(10);
+       arr.add("Pavan");
+       arr.add(20.89);
+       //as here we dont have any generic type safety won't be there.
+       System.out.println(arr.toString());
+       //List<Employee> list = new ArrayList<>();
+       System.out.println(Math.ceil(3.14));
     }
 }
