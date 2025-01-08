@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.ArrayList;
 public class Demo {
     public static boolean validParenthisis(String s) {
         //Easy method
@@ -35,7 +34,7 @@ public class Demo {
         int len = digits.length-1;
         for(int x: digits){ System.out.print(x);}
         //int temp;
-        List<Integer> arr = new ArrayList<Integer>();
+        //List<Integer> arr = new ArrayList<Integer>();
         
         for(int i=0; i<=len; i++) {
             if(i==len){

@@ -1,5 +1,4 @@
 import java.util.*;
-import java.lang.*;
 
 public class StringDemo {
     
@@ -34,11 +33,11 @@ public class StringDemo {
        System.out.println(sbb1.toString().equals(sbb2.toString()));
 
 
-       List<Integer> arr = new ArrayList<>();
+       //List<Integer> arr = new ArrayList<>();
        List<Integer> arr2 = new LinkedList<>();
        arr2.add(0,10);
        System.out.println(arr2);
-       Set<String> set = new HashSet<>();
+       //Set<String> set = new HashSet<>();
        
     
        ArrayList<Integer> arrx = new ArrayList<>();
