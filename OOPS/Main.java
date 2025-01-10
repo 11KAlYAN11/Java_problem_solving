@@ -11,6 +11,7 @@ public class Main {
         //dog.dogSpecialMethod(); // -> here compilation error bcz that dogSpecialMethod() not known to Parent Animal class
         cat.catSpecialMethodKnownToAnimal();
         dog.dogSpecialMethodKnownToAnimal();
+       
     }
     
 }
