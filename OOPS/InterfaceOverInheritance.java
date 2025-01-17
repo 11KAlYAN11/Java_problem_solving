@@ -44,6 +44,8 @@ class HDFCBank implements BankAccount {
  * HCLEmployee class represents an employee with a bank account.
  * It allows depositing and withdrawing salary through the associated bank account.
  */
+
+ //Here HCL Employee not tied to any Bank directly
 class HCLEmployee {
     String name;
     BankAccount bankAccount;
@@ -70,11 +72,13 @@ public class InterfaceOverInheritance {
     public static void main(String[] args) {
         // Employee initially has an ICIC bank account
         HCLEmployee emp1 = new HCLEmployee("pavan", new ICICIBank());
+        //Here HCLEmployee is parent reference, for sub class ICICIBank() while run time it will go under overriding from HCLEmp() to ICICIBank()
         emp1.depositSalary(10000);
         emp1.withdrawSalary(5000);
 
         // Employee moves to JP Morgan (where only HDFC exists)
         emp1.bankAccount = new HDFCBank();
+        //Above HCLEmployee is parent reference, changing from ICICIBank() to HDFCbank() later as per that paramaters also will override 
         emp1.depositSalary(20000);
         emp1.withdrawSalary(8000);
 
