@@ -1,30 +1,35 @@
 package Exceptions;
 
 public class E2 {
-    // public static void mtd(int a, int b) throws CustomizeException {
-    public static void mtd(int a, int b) throws Exception {
+    // This method demonstrates throwing unchecked exceptions based on input conditions.
+    // It throws NullPointerException if both a and b are zero, 
+    // ArithmeticException if b is zero, and 
+    // a custom exception if a is zero.
+    public static void mtd(int a, int b) throws CustomizeException {
         int res;
         if (a == 0 && b == 0) {
-            // this is a unchecked exception
-            throw new NullPointerException("Both a & b are zeros no sense of divide");
+            // This is an unchecked exception
+            throw new NullPointerException("Both a & b are zeros; no sense of divide");
         }
         if (b == 0) {
-            // this is a unchecked exception
+            // This is an unchecked exception
             throw new ArithmeticException("Cannot divide by zero");
         }
         if (a == 0) {
-            // this is a unchecked exception
-            throw new CustomizeException("Offcourse \'a\' can be zero");
-        }
-
-        else {
+            // This is a custom unchecked exception
+            throw new CustomizeException("Of course, 'a' can be zero");
+        } else {
             res = a / b;
         }
         System.out.println(res);
     }
 
-    // public static void main(String[] args) throws CustomizeException
-    public static void main(String[] args) throws Exception {
-        mtd(0, 0);
+    // The main method demonstrates calling mtd with parameters that trigger exceptions.
+    public static void main(String[] args) {
+        try {
+            mtd(0, 0); // This will throw a NullPointerException
+        } catch (CustomizeException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -1,16 +1,23 @@
 package OOPS;
-//Abstract Base class (Cannot be Instantiated)
-//cuz there is no implementaiton in base class no need tpo create a object for it (to enforce that we are creating a class as abstract)
+
+// Abstract Base class (Cannot be Instantiated)
+// This class serves as a blueprint for all animals, enforcing that all subclasses must implement specific behaviors.
 abstract class Animal {
     String name;
-    //Abstract class can have a Constructor
+
+    // Abstract class can have a Constructor
+    // The constructor initializes the name of the animal and prints a message indicating the constructor call.
     Animal(String name) {
         this.name = name;
-        System.out.println(name+": Animal Constructor Called");
+        System.out.println(name + ": Animal Constructor Called");
     }
-    //Abstract method no implementation
+
+    // Abstract method with no implementation
+    // Subclasses must provide their own implementation of this method to define the sound the animal makes.
     abstract void makeSound();
 
+    // Abstract methods for specific behaviors known to the Animal class
+    // These methods must be implemented by subclasses to define specific behaviors for cats and dogs.
     abstract void catSpecialMethodKnownToAnimal();
     abstract void dogSpecialMethodKnownToAnimal();
 }

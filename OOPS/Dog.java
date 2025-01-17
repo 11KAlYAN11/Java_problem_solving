@@ -1,27 +1,36 @@
 package OOPS;
 
 public class Dog extends Animal {
-    // Here for Dog constructor we are getting dog name. that we are passing to the Main Animal Class.
+    // Constructor for Dog Class
+    // The constructor takes a name parameter and passes it to the parent class constructor.
     Dog(String name) {
-        super(name); // calls Animal's Constructor
+        super(name); // Calls Animal's Constructor
     }
 
     @Override
     void makeSound() {
+        // Implementation of the abstract method from Animal class
+        // This method defines the sound that the dog makes.
         System.out.println(name + " Says Woof!");
     }
 
+    // Specific method for Dog
     void dogSpecialMethod() {
+        // This method demonstrates a special behavior specific to dogs.
         System.out.println("This is a special method for Dog");
     }
 
     @Override
     void dogSpecialMethodKnownToAnimal() {
+        // Implementation of the abstract method from Animal class
+        // This method provides a behavior related to dogs, as known to the Animal class.
         System.out.println("This is a dog special method known to animal");
     }
 
     @Override
     void catSpecialMethodKnownToAnimal() {
+        // Implementation of the abstract method from Animal class
+        // This method provides a behavior specific to cats, as known to the Animal class.
         System.out.println("This is a cat special method known to animal");
     }
 }

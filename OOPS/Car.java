@@ -1,6 +1,8 @@
-// Base class (Parent)
-//This class is all about how different type of class method can be invoked from child class with super, with object(having reference of parent class) & parent with sub class refernce
 package OOPS;
+
+// Base class (Parent)
+// This class demonstrates how different types of methods can be invoked from child classes using super, 
+// with an object having a reference of the parent class, and with a subclass reference.
 class Vehicle {
     void startEngine() {
         System.out.println("Vehicle engine starts");
@@ -14,16 +16,19 @@ class Car extends Vehicle {
         System.out.println("Car engine starts with a key");
     }
 
+    // Test method to demonstrate method invocation
     void test1() {
         Vehicle v = new Vehicle();
         v.startEngine(); // Calls Vehicle's method (NO OVERRIDING)
     }
 
+    // Test method to demonstrate method overriding
     void test2() {
         Vehicle v = new Car();
         v.startEngine(); // Calls Car's overridden method (OVERRIDING)
     }
 
+    // Test method to demonstrate calling the parent class method
     void test3() {
         super.startEngine(); // Calls Vehicle's method (NO OVERRIDING)
     }
