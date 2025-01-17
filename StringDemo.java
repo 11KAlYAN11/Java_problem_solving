@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.List;
 
 public class StringDemo {
     
@@ -54,6 +53,11 @@ public class StringDemo {
        arry.add(100);
        arry.add(200);
        System.out.println(arry);
+       arry.add(1,299);
+       arry.add(null);
+       System.out.println(arry);
+       
+       
        //Since arr is declared as List<Integer>, it can access new features added to List in future versions.
        //If we had declared ArrayList<Integer>, we could not access List.of() directly.
        arry = List.of(1,2,3,4,5,6,7,8,9,10);
@@ -77,5 +81,14 @@ public class StringDemo {
        System.out.println(arr.toString());
        //List<Employee> list = new ArrayList<>();
        System.out.println(Math.ceil(3.14));
+
+       List<Integer> lst1 = new ArrayList<>(List.of(1,2,3,4));
+       List<Integer> lst2 = new ArrayList<>(Arrays.asList(1,2,3,4,5));
+       //Iterating lst1 with arrow function introduced in java 8
+       lst1.forEach(a -> System.out.print(a));
+       lst1.forEach(b -> System.out.print(b));
+       //Iteration lst2 with method reference introuced in java 8
+       lst2.forEach(System.out::print);
+       lst2.forEach(System.out::print);
     }
 }

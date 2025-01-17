@@ -7,7 +7,7 @@ public class Main {
         Animal dog = new Dog("Buddy");
         cat.makeSound();
         dog.makeSound();
-        //cat.catSpecialMethod(); // -> here compilation errot bcz that catSpecialMethod() not known to Parent Animal class
+        //cat.catSpecialMethod(); // -> here compilation errot bcz that catSpecialMethod() not known to Parent Animal class (As we are taking the refernce of Animal class)
         //dog.dogSpecialMethod(); // -> here compilation error bcz that dogSpecialMethod() not known to Parent Animal class
         cat.catSpecialMethodKnownToAnimal();
         dog.dogSpecialMethodKnownToAnimal();
