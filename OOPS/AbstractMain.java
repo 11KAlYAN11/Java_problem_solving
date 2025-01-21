@@ -9,9 +9,10 @@ abstract class Vehicle11 {
     // Initializes the speed of the vehicle.
     Vehicle11(int speed) {
         this.speed = speed;
+        System.out.println("The vehicle11 Constructor called");
     }
 
-    // Concrete method already implemented
+    // Concrete method already implemented (like along with abstract methods normal methods also allowed in abstract methods)
     // This method displays the speed of the vehicle.
     void showSpeed() {
         System.out.println("Speed is " + speed + " km/h");
@@ -26,7 +27,7 @@ abstract class Vehicle11 {
 class Bus extends Vehicle11 {
     // Constructor for Bus
     Bus(int speed) {
-        super(speed);
+        super(speed); // As int spees alreaday intialized in parent vehicle11 class we are just using it to intilize a spped varaible
     }
 
     @Override
@@ -41,7 +42,7 @@ class Bus extends Vehicle11 {
 class Bike extends Vehicle11 {
     // Constructor for Bike
     Bike(int speed) {
-        super(speed);
+        super(speed); // As int spees alreaday intialized in parent vehicle11 class we are just using it to intilize a spped varaible
     }
 
     @Override
