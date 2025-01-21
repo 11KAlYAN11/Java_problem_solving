@@ -23,6 +23,7 @@ abstract class Vehicle11 {
     abstract void startEngine();
 }
 
+// Note as the abstract class property all the classes which extends Vehicle11 has same structure. like same methods
 // Bus class extending Vehicle11
 class Bus extends Vehicle11 {
     // Constructor for Bus

@@ -14,7 +14,10 @@ public class Robot extends Machine{
     }
     public static void main(String[] args) {
         Robot r = new Robot();
+        Robot.operate();
+        
         r.callStaticMethod();
-        operate();
+        operate();  //calls Robote operate() method
+        Machine.operate();
     }
 }

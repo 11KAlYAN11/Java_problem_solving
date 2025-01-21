@@ -3,13 +3,8 @@ import java.util.*;
 public class StringDemo {
     
     public static void main(String[] args) {
-        System.out.println("Anu numbers printing"); //\n ln
+        System.out.println("Anu numbers printing"); 
 
-        for(int anu =0; anu<=10 ; anu++) {
-
-            System.out.println(anu);
-            //printf("%d ",anu);
-        }
 
 
         //System.out.println(removeDups("pavan"));

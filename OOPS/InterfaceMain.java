@@ -3,6 +3,10 @@ package OOPS;
 // Flyable interface defines a method for flying behavior.
 interface Flyable {
     void fly(); // Method signature (no implementation)
+    // Error: Interfaces cannot have constructors
+    /*Flyable() {
+        //
+    }*/
 }
 
 // Drivable interface defines a method for driving behavior.

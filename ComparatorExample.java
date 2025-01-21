@@ -79,6 +79,8 @@ public class ComparatorExample {
         salarySortEmps.forEach(System.out::println);
 
         System.out.println("Using no comparator: ");
+        //But this Employee3 is is comparable by default it is compare with ID's as mentioned in Employee Class
+        // by default sorted by ID's
         TreeSet<Employee3> noSortEmp = new TreeSet<>();
         noSortEmp.add(new Employee3(10, "Asam", 300));
         noSortEmp.add(new Employee3(20, "Pavan", 100));
