@@ -150,5 +150,7 @@ public class ThreadExplanationExample {
         thread4.interrupt(); // Interrupt thread4 during its execution
 
         System.out.println("Main thread has completed execution.");
+        // To group some threads will use "ThreadGroup" so that we can ablel to start(), resume(), stop() all respective class threads at a time. 
+        ThreadGroup threadGroup = new ThreadGroup(null);
     }
 }
