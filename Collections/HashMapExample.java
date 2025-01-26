@@ -53,5 +53,18 @@ public class HashMapExample {
        
         // System.out.println("Largest is: "+arr1[arr1.length-1]); // last element in array after sorting in largest
         // System.out.println("Scond largest is: "+arr1[arr1.length-2]); // Last but one in second largest in the array.
+        String str = "hai kavya, How are you";
+        //List<String> words = new ArrayList<>();
+        String[] words1 = new String[10];
+        words1 = str.split(" ");
+        System.out.println(words1);
+        for(String word: words1) {
+            System.out.println(word);
+        }
+        
+
+        /*String str = "hai kavya, How are you";
+        List<String> words = new ArrayList<>(Arrays.asList(str.split(" ")));
+        System.out.println(words);*/
     }
 }
