@@ -4,7 +4,10 @@ import java.util.Map;
 public class ConversionsPracticeExample {
     public static void main(String[] args) {
         int[] numbers = {1,2,3,4,5};
-        
+        String s = " ";
+        if(s.isBlank()) {
+            System.out.println("Str is empty or Blank");
+        }
 
 
         /* String str = "Coding is fun and challenging BangloreAndraPradesh";
