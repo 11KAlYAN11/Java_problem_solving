@@ -1,6 +1,7 @@
 package LEETCODE;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,13 +22,63 @@ public class Main1 {
         /* char[] arr = {'h','e','l','l','o'};
         reverseString(arr); */
         //System.out.println(isAnagram("asam", "saama"));
-        int[] arr={3,2,1,4,6,1,2,3,3,4};
+        int[] arr1={1,2,2,1};
         //System.out.println(missingNumber(arr));
         /* System.out.println(thirdMax(arr));
         String s = new String(); */
-        System.out.println('3'-'0');
+        /* System.out.println('3'-'0');
         System.out.println('4' - '0');
+        Set<Integer> set1 = new TreeSet<>(Arrays.asList(null)); */
+        int[] arr2 = {2,2};
+        int[] res1 = intersect(arr1, arr2);
+        for(int i: res1) {
+            System.out.println(i);
+        }
     }
+
+    public static int[] intersect(int[] nums1, int[] nums2) {
+        List<Integer> list2 = new ArrayList<>();
+        List<Integer> resList = new ArrayList<>();
+        for(int n: nums2) {
+            list2.add(n);
+        }
+        for(int n1: nums1) {
+            if(list2.contains(n1)) {
+                resList.add(n1); // [2,2] -> [2] after lst.remove(n1)
+                list2.remove(Integer.valueOf(n1)); // Once arr1 element there in arr2 add to resList & remove that element list2(arr2) to avoid duplicates 
+                // Ex: arr1 = [1,2,2,1], arr2= [2] 2 is there add to resList & delete from arr2, now again2 come from arr1 but no mathing elements from arr2 so ans is: [2] crt
+            }
+        } // now set1 has [1,2,2,1] -> [2] only unique element
+        // Integer[] res = set1.toArray(new Integer[0]);
+        /* int[] res = new int[set1.size()];
+        int count = 0;
+        for(int i : set1) {
+            res[count] = i;
+            count++; // Once insertion successful update count
+        } */
+        return resList.stream().mapToInt(i -> i).toArray();
+    }
+    public static int[] intersection(int[] nums1, int[] nums2) {
+        List<Integer> list2 = new ArrayList<>();
+        Set<Integer> set1 = new TreeSet<>();
+        for(int n: nums2) {
+            list2.add(n);
+        }
+        for(int n1: nums1) {
+            if(list2.contains(n1)) {
+                set1.add(n1);
+            }
+        } // now set1 has [1,2,2,1] -> [2] only unique element
+        // Integer[] res = set1.toArray(new Integer[0]);
+        int[] res = new int[set1.size()];
+        int count = 0;
+        for(int i : set1) {
+            res[count] = i;
+            count++; // Once insertion successful update count
+        }
+        return res;
+    }
+
     public static int thirdMax(int[] nums) {
         List<Integer> list1 = new ArrayList<>();
         Set<Integer> set1 = new TreeSet<>(); // By default tree set has ascending order preservation

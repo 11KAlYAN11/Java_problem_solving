@@ -65,7 +65,7 @@ public class ConvesrionsExample {
         // 1) ArrayList to Array
         List<String> arrList = new ArrayList<>(Arrays.asList("A","B","C","D")); // This is modifiable
         List<String> arrList1 = Arrays.asList("A","S","A","M"); // this will create fixed length not modifiable
-        List<Integer> arrList2 = Arrays.asList(7,5,6,9,9,0);
+        //List<Integer> arrList2 = Arrays.asList(7,5,6,9,9,0);
         
         String[] arr = arrList.toArray(new String[0]);
         String[] arr1 = arrList1.toArray(new String[0]);
