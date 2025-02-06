@@ -94,5 +94,40 @@ public class StringDemo {
        //Iteration lst2 with method reference introuced in java 8
        lst2.forEach(System.out::print);
        lst2.forEach(System.out::print);
+        int pairCount = 0;
+       String jhon = "kalyan";
+       String jhon1 = "knlyaa";
+       //Map<Character,Integer> counts = new LinkedHashMap<>();
+       List<Integer> list = new ArrayList<>();
+       for(int i=0; i<jhon.length(); i++) { // as both str are same take anyone
+        if(jhon.charAt(i) != jhon1.charAt(i)) {
+            list.add(i); 
+        }
+       } // list = [1,6]
+       if(list.size() != 2) { // if(list.size() <=1 || list.size()>2)
+        System.out.println("Not possible false");
+       }
+       // else
+       System.out.println();
+       System.out.println();
+       char[] ch = jhon1.toCharArray(); // list =  [0,6] {k,n,l,y,a,a} 
+        char temp = ch[list.get(0)];
+        ch[list.get(0)] = ch[list.get(1)]; // n = a
+        ch[list.get(1)] = temp; // a = n
+       jhon1 = new String(ch);
+       System.out.println(jhon1);
+       jhon1 = ch.toString();
+       System.out.println(jhon1);
+      /*  char first = jhon.charAt(0);
+       char last = jhon.charAt(jhon.length()-1);
+       String middle = jhon.substring(1,jhon.length()-1);
+       String ress = last+middle+first;
+       System.out.println();
+       System.out.println(ress);
+       System.out.println(jhon.equals(ress)); */
+
+       String[] names1 = {"vikram","asam", "asnil","bob","jhon"};
+       Arrays.sort(names1); // lexiographically sorting
+       System.out.println(Arrays.toString(names1));
     }
 }

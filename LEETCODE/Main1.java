@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -29,11 +30,44 @@ public class Main1 {
         /* System.out.println('3'-'0');
         System.out.println('4' - '0');
         Set<Integer> set1 = new TreeSet<>(Arrays.asList(null)); */
-        int[] arr2 = {2,2};
+        /* int[] arr2 = {2,2};
         int[] res1 = intersect(arr1, arr2);
         for(int i: res1) {
             System.out.println(i);
+        } */
+       String[] names1 = {"asamm", "asam"};
+       System.out.println(longestCommonPrefix(names1));
+       isPalindrome1("java");
+    }
+    public static void isPalindrome1(String str) {
+        /* Scanner sc = new Scanner(System.in);
+        String str = sc.next(); */
+        int left=0, right=str.length()-1;
+        while(left<right) {
+            if(str.charAt(left) != str.charAt(right)) {
+                System.out.println("No");
+                // sc.close();
+                return;
+            }
+            left++;
+            right--;
         }
+        System.out.println("Yes");
+        // sc.close();
+    }
+
+    public static String longestCommonPrefix(String[] strs) {
+        Arrays.sort(strs); // Sorting the string lexiographically  cuz once u sort if common prefixies is there that has to show up in first & last string
+        String first = strs[0]; // first string
+        System.out.println(first);
+        String last = strs[strs.length-1]; // last string
+        int i=0;
+        while(i<first.length() && i<last.length() && first.charAt(i) == last.charAt(i)) {
+            i++;
+        }
+        // no return a fist string from 0 to i
+        return first.substring(0,i);
+        
     }
 
     public static int[] intersect(int[] nums1, int[] nums2) {
