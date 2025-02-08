@@ -15,10 +15,12 @@ public class CheckedExceptionExample {
              */
             File file = new File("NonExistant.txt");
             Scanner scanner = new Scanner(file);
+            scanner.close();
         }
         catch (FileNotFoundException e) {
             System.out.println("Hai File Not Found Exception");
             System.out.println(e.getMessage());
         }
+       
     }
 }

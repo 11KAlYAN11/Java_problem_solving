@@ -10,7 +10,7 @@ public class UncheckedExceptionExample {
              * - ArrayIndexOutOfBoundsException: Thrown to indicate that an array has been accessed with an illegal index.
              * - ClassCastException: Thrown when an object is cast to a subclass of which it is not an instance.
              */
-            int a = 5 / 0; // This will throw an ArithmeticException
+            //int a = 5 / 0; // This will throw an ArithmeticException
         } catch (ArithmeticException e) {
             System.out.println(e.getMessage());
         } finally {

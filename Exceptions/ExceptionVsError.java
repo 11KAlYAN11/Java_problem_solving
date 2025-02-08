@@ -18,7 +18,7 @@ public class ExceptionVsError {
          * - Unchecked Exception: Occurs at runtime, can be avoided by fixing logic (e.g., NullPointerException, ArrayIndexOutOfBoundsException).
          */
         try {
-            int a = 5 / 0; // This will throw an ArithmeticException (divide by zero)
+            //int a = 5 / 0; // This will throw an ArithmeticException (divide by zero)
         } catch (ArithmeticException e) {
             System.out.println(e.getMessage());
             System.out.println(e.getCause());
