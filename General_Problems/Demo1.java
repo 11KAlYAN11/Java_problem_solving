@@ -8,7 +8,15 @@ public class Demo1 {
         System.out.println(reverseDigits(123456789));
         System.out.println(isPrime(97));
         System.out.println(isPowerOfAnother(2L, 256L));
+        System.out.println();
         System.out.println(factorial(5));
+        System.out.println(factorialR(5));
+    }
+    static int factorialR(int n) {
+        if(n==1) {
+            return 1;
+        }
+        return n * factorialR(n-1);
     }
 
     static int factorial(int n) {
@@ -25,7 +33,7 @@ public class Demo1 {
             
             a=b;
             b=c;
-            
+            System.out.print(c+" ");
         }
         return sum;
     }
