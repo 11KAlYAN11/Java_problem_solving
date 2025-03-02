@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 /*
@@ -102,7 +103,9 @@ public class PrintAllSubsets {
         // 1) Make sure array is sorted for finding uniqueSubsets
         // 2) take Subsets
         // 3) avoid making calls when next is duplicate
+        
         // As for recurssion base case & valid recurssion essential
+        Collections.sort(arr);
         if(i==arr.size()) {
             resSets.add(new ArrayList<>(res)); // when we reach base case we need to add that all res to result sets
             return;
