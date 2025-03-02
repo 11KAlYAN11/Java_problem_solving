@@ -81,5 +81,46 @@ public class PrintAllSubsets {
 
         Vector<Integer> nums2 = new Vector<>(Arrays.asList(0));
         System.out.println(subsets(nums2));
+
+        Vector<Integer> numsx = new Vector<>(Arrays.asList(1, 2, 2));
+        System.out.println("All possible subsets");
+        System.out.println(subsets(numsx));
+
+        Vector<Integer> nums3 = new Vector<>(Arrays.asList(1, 2, 2));
+        System.out.println("Unique subsets");
+        System.out.println(uniqueSubsets(nums3)); // this call for unique subsets
+    }
+    // Note resource: 1Note Recurssion + Note book (for better visualization)
+    public static List<List<Integer>> uniqueSubsets(Vector<Integer> arr) {
+        Vector<Integer> res = new Vector<>();
+        List<List<Integer>> resSets = new ArrayList<>();
+        findUniqueSubsets(arr,res,0,resSets);
+        return resSets;
+    }
+    // Here we are taking that resSets list from other method, so operations did on that list directly impact there no need to return
+    public static void findUniqueSubsets(Vector<Integer>arr, Vector<Integer> res, int i, List<List<Integer>> resSets) {
+        // 1) Make sure array is sorted for finding uniqueSubsets
+        // 2) take Subsets
+        // 3) avoid making calls when next is duplicate
+        // As for recurssion base case & valid recurssion essential
+        if(i==arr.size()) {
+            resSets.add(new ArrayList<>(res)); // when we reach base case we need to add that all res to result sets
+            return;
+        }
+        // Include case (left side case)
+        // Add current element to res & call to include
+        res.add(arr.get(i));
+        findUniqueSubsets(arr, res, i+1, resSets);
+
+        // Now for to exclude the current element
+        // Now remove last element from res
+        res.remove(res.size()-1); 
+        // Now here main step is to avoid duplicates Once we excluded any element we don't allow that element to any later excludes ex arr: [1,2,2,2,3];
+        int idx = i+1; // idx will just just infront of i
+        while (idx < arr.size() && arr.get(idx) == arr.get(idx-1)) {
+            idx++;
+        }
+        // Now make a call to Exclude we we have avoided duplicate elements
+        findUniqueSubsets(arr, res, idx, resSets);
     }
 }
