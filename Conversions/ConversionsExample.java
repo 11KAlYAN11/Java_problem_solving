@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +24,10 @@ public class ConversionsExample {
         List<String> list4 = Arrays.asList("Asam","Pavan","kumar","reddy");
         String[] strArr = list4.toArray(new String[0]);
         System.out.println(Arrays.toString(strArr));
+
+        List<String> list5 = Arrays.asList("SLN", "Omh", "Shivaya");
+        String[] strArr1 = list5.toArray(new String[0]);
+        System.out.println(Arrays.toString(strArr1));
 
         // 2) Collections -> Integer[]
         // List<Integer> lst1 = Arrays.asList(4,3,2,1);
