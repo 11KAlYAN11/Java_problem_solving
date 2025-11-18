@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 public class StreamsExp1 {
    public static void main(String[] args) {
     String str = "Java is fun and Java is Powerful that's called java";
-    List<String> uniqueWords = Arrays.stream(str.split(" ")).map(String::toLowerCase).distinct().sorted().collect(Collectors.toList());
+    List<String> uniqueWords = Arrays.stream(str.split(" ")).map(String::toLowerCase).distinct().sorted().collect(Collectors.toList()); // From Ytube interview video
 
     System.out.println(uniqueWords);
    } 
