@@ -26,5 +26,11 @@ public class StreamsExp1 {
                   .map(k -> k*2)
                   .forEach(k -> System.out.print(k+"\t"));
        
+      System.out.println();            
+      nums.stream()
+                  .filter(p -> p%2==1) // Only if nums is odd
+                  .sorted()
+                  .map(p -> p*2)
+                  .forEach(p -> System.out.print(p+"\t"));            
    } 
 }
