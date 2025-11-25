@@ -1,12 +1,11 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Predicate;
 
 public class LambdaEx1 {
     public static void main(String[] args) {
-        List<Integer> data = Optional.ofNullable(Arrays.asList(4,5,3,1,8,6,20,13);
+        List<Integer> data = Arrays.asList(4, 5, 3, 1, 8, 6, 20, 13);
         
                 data.stream()
                           .filter(k -> k%2 ==1) // Only if data is odd
@@ -51,10 +50,11 @@ public class LambdaEx1 {
             }
             // Streams made that too simple like remove loops and boilerplate code support funcationla programming
             names.stream()
-                .filter(n -> n.startsWith(("k"))
-                .map(String::toUpperCase))
+                .filter(n -> n.startsWith("k"))
+                .map(String::toUpperCase)
                 .toList(); // Now it is cleaner, shorter, readabule, parallelizable
 
+                
 
     }
 }
