@@ -2,6 +2,7 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class TypesOfStreams {
@@ -57,5 +58,25 @@ public class TypesOfStreams {
         /* Str̥eam<Integer> infinate = Stream.iterate(1, n -> n + 1);
         infinate.forEach(n -> System.out.print(n));
          */
+
+        /* 2. Stream.generate()
+
+                Stream.generate() is used when you want to create an infinite stream of values.
+                Because it is infinite, you almost always combine it with .limit().
+         */
+        Stream<Double> randoms = Stream.generate(Math::random)
+                .limit(10);
+        randoms.forEach(System.out::println);
+
+        Stream<String> streams = Stream.generate(() -> "Kalyan")
+                .limit(3);
+         streams.forEach(System.out::println);
+
+        int sum = IntStream.range(1, 10).sum(); // Exclusive 10
+        System.out.println(sum);
+
+        int sum2 = IntStream.rangeClosed(1,10).sum(); // Inclusive 10
+        System.out.println(sum2);
+
     }
 }
