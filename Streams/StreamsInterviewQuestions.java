@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsInterviewQuestions {
@@ -50,6 +51,9 @@ public class StreamsInterviewQuestions {
         .reduce(0, (c,d) -> c+d);
         System.out.println(sum);
 
+
+        //1) Find all even numbers from a list
+
         List<Integer>list = Arrays.asList(1,2,3,4,5,6);
         List<Integer> evens = list.stream()
                                 .filter(n -> n % 2 == 0) 
@@ -57,5 +61,37 @@ public class StreamsInterviewQuestions {
                                 .toList(); // java 16+ for newer JDk's
                                 // .forEach(System.out::print);
         evens.forEach(System.out::print);
+
+        // approach 2:
+        List<Integer> evens2 = list.stream()
+            .collect(Collectors.filtering(n -> n%2 == 0, Collectors.toList()));
+        System.out.println();
+        evens2.forEach(System.out::println);  
+        
+        // 2)  Find the sum of all numbers in a list
+        int sum1 = list.stream()
+            .mapToInt(n -> n)
+            .sum();
+        System.out.println(sum1);    
+
+        int sum2 = list.stream()
+            .mapToInt(Integer::intValue) // It is same as first just Method reference expression
+            .sum();
+        System.out.println(sum2);   
+        
+        int sum3 = list.stream()
+            .reduce(0, Integer::sum); 
+            // .reduce(0, (a1,a2) -> a1 + a2);
+        System.out.println(sum3);    
+
+
+        int max = list.stream()
+            /* .mapToInt(Integer::intValue) // It is same as first just Method reference expression // Why it works: Use IntStream.max + orElseThrow for empty handling.
+            .max().orElseThrow(); */
+            .reduce(Integer::max).orElseThrow();  // Why it works: reduce with Integer::max avoids converting to primitive stream. 
+        System.out.println(max); 
+
+
+        // 6) Count the number of strings starting with a specific letter
     }
 }
