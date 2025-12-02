@@ -1,7 +1,10 @@
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -134,5 +137,50 @@ public class StreamsInterviewQuestions {
             .sorted(Comparator.reverseOrder()).collect(Collectors.toList());
         System.out.println();
         sorted1.forEach(System.out::print);
+
+        // SLN SLN SLN SLN
+        // anyMatch() check if any element in the list matches a condition
+
+        boolean hasEven = nums.stream().anyMatch( n -> n%2 == 0);
+        System.out.println(hasEven);
+
+        // allMatch() check if all elements match a condition
+
+        boolean allEven = nums.stream().allMatch(n-> n%2 == 0);
+        System.out.println(allEven);
+
+        boolean noneLongerThan10 = nums.stream().noneMatch(n -> n > 10); // means none should be greater than 10
+        System.out.println(noneLongerThan10);
+
+        // Filter none values from list
+        /*
+        ⚠️ List.of() is strict → it throws NPE if ANY element is null.
+        ❌ Problem  -> List<String> shorts = List.of("kal", "pan", "red", null, "blu", null, null, "Alice");
+        ✅ Correct Solutions -> List<String> shorts = Arrays.asList("kal", "pan", "red", null, "blu", null, null, "Alice");
+
+        "Can List.of() contain nulls?"
+            Correct answer:
+            “No, all List.of(), Set.of() and Map.of() factory methods throw NullPointerException if any element or key/value is null because they return immutable collections that don't allow nulls.”
+            This is a strong point to mention in interviews.
+         */
+        List<String> shorts = Arrays.asList("kal", "pan", "red", null, "blu", null, null, "Alice");
+        List<String> nonNull =  shorts.stream().filter(Objects::nonNull).collect(Collectors.toList()); // simply we can alos use .toList() from java 16+
+        nonNull.forEach(System.out::println);
+
+        // we can also use flatMap to drop null values
+        List<String> nonNull2 = shorts.stream().flatMap(s1 -> s1 == null ? Stream.empty() : Stream.of(s1)).collect(Collectors.toList());
+        nonNull2.forEach(System.out::println);
+
+        Set<String> set1 = shorts.stream().collect(Collectors.toSet());
+        set1.forEach(System.out::println);
+
+        // If you want to preserve the insertion order leverage LinkedHashSet()
+
+        System.out.println();
+        Set<String> set2 = shorts.stream().collect(Collectors.toCollection(LinkedHashSet::new));
+        set2.forEach(System.out::println);
+        
+
+
     }
 }
