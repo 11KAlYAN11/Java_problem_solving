@@ -59,7 +59,7 @@ public class TypesOfStreams {
         infinate.forEach(n -> System.out.print(n));
          */
 
-        /* 2. Stream.generate()
+ /* 2. Stream.generate()
 
                 Stream.generate() is used when you want to create an infinite stream of values.
                 Because it is infinite, you almost always combine it with .limit().
@@ -70,12 +70,12 @@ public class TypesOfStreams {
 
         Stream<String> streams = Stream.generate(() -> "Kalyan")
                 .limit(3);
-         streams.forEach(System.out::println);
+        streams.forEach(System.out::println);
 
         int sum = IntStream.range(1, 10).sum(); // Exclusive 10
         System.out.println(sum);
 
-        int sum2 = IntStream.rangeClosed(1,10).sum(); // Inclusive 10
+        int sum2 = IntStream.rangeClosed(1, 10).sum(); // Inclusive 10
         System.out.println(sum2);
 
     }
