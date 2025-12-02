@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -93,5 +94,45 @@ public class StreamsInterviewQuestions {
 
 
         // 6) Count the number of strings starting with a specific letter
+        List<String> words = List.of("Apple", "Ant", "bob", "cast", "as");
+        long count = words.stream()
+            // .filter(s1 -> s1.toLowerCase().startsWith("a"))
+            .filter(s1 -> s1.startsWith("A"))
+            .count();
+        System.out.println();
+        System.out.println(count);  
+        
+        long count1 = words.stream() 
+              .collect(Collectors.filtering(sx -> sx.startsWith("A"),Collectors.counting()));
+        System.out.println(count1); // Why it works: Use Collectors.filtering + counting.
+
+        // 7) Remove duplicates from a list of integers
+        List<Integer> nums = Arrays.asList(1,2,2,3,3,3,4);
+        List<Integer> uniqueNums = nums.stream()
+            .distinct()
+            .toList();
+        System.out.println(uniqueNums);
+
+        List<Integer> uniqueNums1 = nums.stream()
+            .collect(Collectors.toSet()) // Why it works: Collectors.toSet removes duplicates.
+            .stream()
+            .toList();
+        System.out.println(uniqueNums1);
+
+        List<Integer> uniqueNums3 = nums.stream().distinct().collect(Collectors.toList());
+        System.out.println(uniqueNums3);
+
+        List<Integer> sorted = nums.stream()
+            .sorted()
+            .toList();
+        sorted.forEach(System.out::print);    
+
+        List<Integer> sorted1 = nums.stream()   
+            /* .sorted()
+            .collect(Collectors.toList()); */
+            // .sorted(Comparator.naturalOrder()).collect(Collectors.toList()); // with comparator natural oreder ascending order
+            .sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        System.out.println();
+        sorted1.forEach(System.out::print);
     }
 }
