@@ -53,5 +53,15 @@ public class BeforeJava8RealTimeEx1 {
             employeeNames.add(e.getName());
         }
         System.out.println(employeeNames);
+        /*
+        ❌ Issues
+
+        Too many loops
+
+        Too many temporary lists
+
+        Too many classes/interfaces
+
+        Hard to read */
     }
 }

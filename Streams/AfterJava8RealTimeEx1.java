@@ -32,6 +32,19 @@ public class AfterJava8RealTimeEx1 {
             .map(Employee::getName)
             .toList();
 
-        System.out.println(names);    
+        System.out.println(names);   
+        /*
+        ✔ Why this is powerful?
+
+        One single flow
+
+        No temp lists
+
+        No manual loops
+
+        It reads like English
+
+        Used in EVERY Spring Boot microservice
+         */ 
     }
 }
