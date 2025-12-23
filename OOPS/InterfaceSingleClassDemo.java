@@ -54,7 +54,7 @@ public class InterfaceSingleClassDemo {
         // Creating an object of the class
         // Tree tree = new Tree("Tree"); // will give compile error because Tree is an abstract class
         Tree neem = new Neem("Neem From AP");
-        Tree bamboo = new Bamboo("Bamboo from TG");
+        Tree bamboo = new Bamboo("Bamboo from KL");
         neem.display();
         bamboo.display();
     }

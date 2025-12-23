@@ -67,6 +67,6 @@ public class InterfaceMain {
         drone1.drive(); // Drone is driving on the ground.
 
         // Demonstrating polymorphism with interface references
-        // It is similar to List<T> list = new ArrayList<T>(); always refer with base class object reference
+        // It is similar to List<T> list = new ArrayList<T>(); always refer base class with parent reference
     }
 }

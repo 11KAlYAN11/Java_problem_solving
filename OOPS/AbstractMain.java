@@ -28,7 +28,7 @@ abstract class Vehicle11 {
 class Bus extends Vehicle11 {
     // Constructor for Bus
     Bus(int speed) {
-        super(speed); // As int spees alreaday intialized in parent vehicle11 class we are just using it to intilize a spped varaible
+        super(speed); // As int speed alreaday intialized in parent vehicle11 class we are just using it to intilize a speed varaible
     }
 
     @Override
@@ -43,7 +43,7 @@ class Bus extends Vehicle11 {
 class Bike extends Vehicle11 {
     // Constructor for Bike
     Bike(int speed) {
-        super(speed); // As int spees alreaday intialized in parent vehicle11 class we are just using it to intilize a spped varaible
+        super(speed); // As int speed alreaday intialized in parent vehicle11 class we are just using it to intilize a speed varaible
     }
 
     @Override
