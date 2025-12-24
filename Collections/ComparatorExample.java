@@ -74,7 +74,7 @@ public class ComparatorExample {
         TreeSet<Employee3> salarySortEmps = new TreeSet<>( new SalaryComparator());
         salarySortEmps.add(new Employee3(10, "Asam", 300));
         salarySortEmps.add(new Employee3(20, "Pavan", 100));
-        salarySortEmps.add(new Employee3(30, "Reddy", 400));
+        salarySortEmps.add(new Employee3(30, "Reddy", 1000));
         salarySortEmps.add(new Employee3(5, "Zavan", 700));
         salarySortEmps.forEach(System.out::println);
 

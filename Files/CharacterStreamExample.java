@@ -58,7 +58,7 @@ public class CharacterStreamExample {
             String line;
             while ((line = br.readLine()) != null) { //as bufferedReader is String type no -1 only null
                 bw.write(line);
-                bw.newLine(); // Write a new line afyer each line
+                bw.newLine(); // Write a new line after each line
             }
             System.out.println("\nSuccessfully copied content from: "+srcPath+ " to "+desPath);
         } catch(IOException e) {

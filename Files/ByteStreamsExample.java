@@ -63,7 +63,4 @@ public class ByteStreamsExample {
             System.out.println("An error occured: "+e.getMessage());
         }
     }
-
-
-    
 }
