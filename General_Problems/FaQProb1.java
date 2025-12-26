@@ -1,12 +1,21 @@
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class FaQProb1 {
     public static void main(String[] args) {
         removeDuplicates();
         longestCommonPrefix();
+        intersection();
+        union();
+        isAnagram();
     }
 
     public static void removeDuplicates() {
@@ -47,4 +56,233 @@ public class FaQProb1 {
         }
         System.out.println("Longest Common Prefix: "+ firstStr.substring(0, i));
     }
+
+    public static void intersection() {
+
+    /*
+     =========================================================
+      INPUT ARRAYS
+     =========================================================
+      arri  -> first array
+      arrii -> second array
+
+      Example:
+      arri  = [1, 2, 2, 1]
+      arrii = [2, 2]
+     =========================================================
+    */
+
+    int[] arri  = {1, 2, 2, 1};
+    int[] arrii = {2, 2};
+
+    /* =========================================================
+       METHOD 1 : INTERSECTION WITH DUPLICATES
+       (LeetCode 350 – Intersection of Two Arrays II)
+
+       RULE:
+       - Each element should appear as many times as it appears
+         in BOTH arrays.
+
+       Expected Output:
+       [2, 2]
+
+       LOGIC:
+       - Convert second array into a List
+       - For each element in first array:
+           - If present in list → add to result
+           - Remove that ONE occurrence from list
+       =========================================================
+    */
+
+    List<Integer> list = new ArrayList<>();
+    List<Integer> resList = new ArrayList<>();
+
+    // Convert second array to List
+    for (int i : arrii) {
+        list.add(i);
+    }
+    // list = [2, 2]
+
+    // Traverse first array
+    for (int k : arri) {
+        if (list.contains(k)) {
+            resList.add(k);                // add matched value
+            list.remove(Integer.valueOf(k)); // remove ONE occurrence
+        }
+    }
+
+    // Output: [2, 2]
+    System.out.println("Method 1 - Duplicate Intersection:");
+    resList.forEach(i -> System.out.print(i + " "));
+
+
+
+    /* =========================================================
+       METHOD 2 : UNIQUE INTERSECTION
+       (LeetCode 349 – Intersection of Two Arrays)
+
+       RULE:
+       - Only UNIQUE common elements
+       - No duplicates allowed
+
+       Expected Output:
+       [2]
+
+       LOGIC:
+       - Use Set to automatically avoid duplicates
+       - TreeSet is used for:
+           ✔ uniqueness
+           ✔ sorted order
+       =========================================================
+    */
+
+    List<Integer> list2 = new ArrayList<>();
+    Set<Integer> resList2 = new TreeSet<>();
+
+    // Convert second array to List
+    for (int i : arrii) {
+        list2.add(i);
+    }
+    // list2 = [2, 2]
+
+    // Traverse first array
+    for (int k : arri) {
+        if (list2.contains(k)) {
+            resList2.add(k);                // Set avoids duplicates
+            list2.remove(Integer.valueOf(k)); // optional removal
+        }
+    }
+
+    // Output: [2]
+    System.out.println("\n\nMethod 2 - Unique Intersection:");
+    resList2.forEach(System.out::println);
+
+
+
+    /* =========================================================
+       METHOD 3 : OPTIMIZED INTERSECTION (BEST PRACTICE)
+       (Using HashMap – Industry Standard)
+
+       WORKS FOR:
+       ✔ duplicate intersection
+       ✔ unique intersection (just switch List → Set)
+
+       TIME COMPLEXITY:
+       O(n + m)
+
+       SPACE COMPLEXITY:
+       O(n)
+
+       LOGIC:
+       - Store frequencies of elements from first array
+       - Traverse second array:
+           - If count > 0 → add to result
+           - Decrease count to avoid duplicates
+       =========================================================
+    */
+
+    Map<Integer, Integer> map = new HashMap<>();
+    List<Integer> resa = new ArrayList<>();
+    // For UNIQUE intersection → use Set<Integer> instead
+
+    // Count frequency of elements in first array
+    for (int i : arri) {
+        map.put(i, map.getOrDefault(i, 0) + 1);
+    }
+    // map = {1=2, 2=2}
+
+    // Traverse second array
+    for (int i1 : arrii) {
+        if (map.getOrDefault(i1, 0) > 0) {
+            resa.add(i1);                   // add common element
+            map.put(i1, map.get(i1) - 1);   // reduce count
+        }
+    }
+
+    // Output: [2, 2]
+    System.out.println("\nMethod 3 - Optimized Intersection:");
+    resa.forEach(System.out::println);
+
+    }
+
+    public static void union() {
+
+    /*
+     =========================================================
+      INPUT ARRAYS
+      arr1 = [1, 2, 2, 1]
+      arr2 = [2, 3]
+
+      Expected Output:
+      [1, 2, 3]
+     =========================================================
+    */
+
+    int[] arr1 = {1, 2, 2, 1};
+    int[] arr2 = {2, 3};
+
+    // LinkedHashSet preserves insertion order
+    Set<Integer> unionSet = new LinkedHashSet<>();
+
+    // Add all elements from both arrays
+    for (int n : arr1) {
+        unionSet.add(n);
+    }
+    for (int n : arr2) {
+        unionSet.add(n);
+    }
+
+    System.out.println("\nUnion WITHOUT duplicates:");
+    unionSet.forEach(i -> System.out.print(i + " "));
+    }
+
+    public static void isAnagram() {
+
+    String s = "anagram";
+    String t = "nagaram";
+
+    // 1️⃣ Length check (mandatory)
+    if (s.length() != t.length()) {
+        System.out.println("Not an Anagram");
+        return;
+    }
+
+    /*
+     =================================================
+     Using HashMap because:
+     ✔ Order does NOT matter
+     ✔ Fast lookup
+     ✔ Works for any character set
+     =================================================
+    */
+    Map<Character, Integer> counts = new HashMap<>();
+
+    // 2️⃣ Count frequency of characters in s
+    for (char c : s.toCharArray()) {
+        counts.put(c, counts.getOrDefault(c, 0) + 1);
+    }
+
+    // 3️⃣ Reduce frequency using t
+    for (char c : t.toCharArray()) {
+
+        // Character not present → not an anagram
+        if (!counts.containsKey(c)) {
+            System.out.println("Not an Anagram");
+            return;
+        }
+
+        counts.put(c, counts.get(c) - 1);
+
+        // Remove character when count becomes zero
+        if (counts.get(c) == 0) {
+            counts.remove(c);
+        }
+    }
+
+    // 4️⃣ If map is empty → perfect anagram
+    System.out.println("Is Anagram: " + counts.isEmpty());
+}
+
+
+
 }

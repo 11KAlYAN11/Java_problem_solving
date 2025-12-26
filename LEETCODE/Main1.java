@@ -70,6 +70,7 @@ public class Main1 {
     }
 
     public static int[] intersect(int[] nums1, int[] nums2) {
+        // This is intersect with duplicates
         List<Integer> list2 = new ArrayList<>();
         List<Integer> resList = new ArrayList<>();
         for(int n: nums2) {
@@ -79,7 +80,7 @@ public class Main1 {
             if(list2.contains(n1)) {
                 resList.add(n1); // [2,2] -> [2] after lst.remove(n1)
                 list2.remove(Integer.valueOf(n1)); // Once arr1 element there in arr2 add to resList & remove that element list2(arr2) to avoid duplicates 
-                // Ex: arr1 = [1,2,2,1], arr2= [2] 2 is there add to resList & delete from arr2, now again2 come from arr1 but no mathing elements from arr2 so ans is: [2] crt
+                // Ex: arr1 = [1,2,2,1], arr2= [2] 2 is there add to resList & delete from arr2, now again 2 come from arr1 but no mathing elements from arr2 so ans is: [2] crt
             }
         } // now set1 has [1,2,2,1] -> [2] only unique element
         // Integer[] res = set1.toArray(new Integer[0]);
@@ -92,6 +93,7 @@ public class Main1 {
         return resList.stream().mapToInt(i -> i).toArray();
     }
     public static int[] intersection(int[] nums1, int[] nums2) {
+        // This is intersect w/o duplicates
         List<Integer> list2 = new ArrayList<>();
         Set<Integer> set1 = new TreeSet<>();
         for(int n: nums2) {
@@ -128,7 +130,7 @@ public class Main1 {
 
     public static int missingNumber(int[] nums) {
         int len1 = nums.length;
-        int absSum = (len1*(len1+1))/2; // (n(n+1))/2;
+        int absSum = (len1*(len1+1))/2; // (n(n+1))/2   the basic math formual to find missing number;
         int arrSum = 0;
         for(int i: nums) {
             arrSum+= i;
@@ -137,8 +139,20 @@ public class Main1 {
     } 
 
     public static boolean isAnagram(String s, String t) {
+        /*
+        🧠 What is an Anagram?
+
+        Two strings are anagrams if:
+
+        They contain the same characters
+
+        With the same frequency ex: "listen"   "silent" ✅, "anagram"  "nagaram" ✅, "rat" "car" ❌
+        
+        Order does NOT matter
+
+         */
         Map<Character,Integer> sCounts = new LinkedHashMap<>();
-        //Map<Character,Integer> tCounts = new LinkedHashMap<>();
+        //Map<Character, Integer> tCounts = new LinkedHashMap<>();
         if(s.length() != t.length()) {return false;}
         for(char s1:s.toCharArray()) {
             sCounts.put(s1, sCounts.getOrDefault(s1, 0) +1);
@@ -154,7 +168,7 @@ public class Main1 {
         return true; */
         // Optimized and works well for large strings
         // Subtract frequencies for characters in 't'
-    for (char c : t.toCharArray()) {
+    for(char c : t.toCharArray()) {
         if (!sCounts.containsKey(c)) {
             return false; // If 't' has a character not in 's', not an anagram
         }
