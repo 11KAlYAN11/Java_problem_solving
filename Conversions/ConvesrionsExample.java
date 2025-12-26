@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ConvesrionsExample {
     public static void main(String[] args) {
-        // 1) arr[] to arrList[]
+        // 1) arr[] to ArrList[]
         String[] arr = {"A","B","c"};
         // Convert arr[] to arrList
         List<String> arrList = new ArrayList<>(Arrays.asList(arr)); 
@@ -43,7 +43,7 @@ public class ConvesrionsExample {
         // Output: [1, 2, 3, 9, 8, 7, 5]
         System.out.println(strAsam2);
 
-        // 3) String to arr[] & arrList[]
+        // 3) String to arr[] & ArrList[]
         List<String> strArr1 = new ArrayList<>();
 
         String name = "Asam Pavan Kumar Reddy";

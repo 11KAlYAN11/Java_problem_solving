@@ -5,36 +5,35 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class Main1 {
     public static void main(String[] args) {
-        /* System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
+        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
         int[] arr = {3,2,2,3};
-        System.out.println(removeElement(arr, 3)); */
-        /* int[] arr = {0,0,1,1,1,2,2,3,3,4};
-        System.out.println(removeDuplicates(arr));
+        System.out.println(removeElement(arr, 3)); 
+        int[] arrF = {0,0,1,1,1,2,2,3,3,4};
+        System.out.println(removeDuplicates(arrF));
         String s1 = "asampavanasam";
-        System.out.println("IndexOfAsam: "+s1.indexOf("asam")); */
+        System.out.println("IndexOfAsam: "+s1.indexOf("asam"));
         //System.out.println(addDigits(248));
         //char[] arr = {"h","e","l","l","o"};
-        /* char[] arr = {'h','e','l','l','o'};
-        reverseString(arr); */
+        char[] arrx = {'h','e','l','l','o'};
+        reverseString(arrx);
         //System.out.println(isAnagram("asam", "saama"));
         int[] arr1={1,2,2,1};
         //System.out.println(missingNumber(arr));
-        /* System.out.println(thirdMax(arr));
-        String s = new String(); */
-        /* System.out.println('3'-'0');
+       // System.out.println(thirdMax(arrx));
+        String s = new String();
+        System.out.println('3'-'0');
         System.out.println('4' - '0');
-        Set<Integer> set1 = new TreeSet<>(Arrays.asList(null)); */
-        /* int[] arr2 = {2,2};
+        Set<Integer> set1 = new TreeSet<>(Arrays.asList(null));
+        int[] arr2 = {2,2};
         int[] res1 = intersect(arr1, arr2);
         for(int i: res1) {
             System.out.println(i);
-        } */
+        }
        String[] names1 = {"asamm", "asam"};
        System.out.println(longestCommonPrefix(names1));
        isPalindrome1("java");
@@ -65,7 +64,7 @@ public class Main1 {
         while(i<first.length() && i<last.length() && first.charAt(i) == last.charAt(i)) {
             i++;
         }
-        // no return a fist string from 0 to i
+        // no return a first string from 0 to i
         return first.substring(0,i);
         
     }

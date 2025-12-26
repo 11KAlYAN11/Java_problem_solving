@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -6,6 +5,7 @@ import java.util.Map;
 
 public class ConversionsExample {
     public static void main(String[] args) {
+        
         // 1) Collections -> primitive arrays arr[]
         System.out.println("Collections -> primitive arrays");
         List<Integer> list1 = Arrays.asList(1,2,3,4,5,6);
@@ -22,7 +22,7 @@ public class ConversionsExample {
         System.out.println(Arrays.toString(longArr));
 
         List<String> list4 = Arrays.asList("Asam","Pavan","kumar","reddy");
-        String[] strArr = list4.toArray(new String[0]);
+        String[] strArr = list4.toArray(new String[0]); // remember
         System.out.println(Arrays.toString(strArr));
 
         List<String> list5 = Arrays.asList("SLN", "Omh", "Shivaya");
