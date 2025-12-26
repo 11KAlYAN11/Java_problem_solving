@@ -6,6 +6,7 @@ import java.util.Set;
 public class FaQProb1 {
     public static void main(String[] args) {
         removeDuplicates();
+        longestCommonPrefix();
     }
 
     public static void removeDuplicates() {
@@ -33,6 +34,17 @@ public class FaQProb1 {
                 seen[se] = true; // now marked that position as seen
             }
         }
-        
+    }
+
+    public static void longestCommonPrefix() {
+        String[] listOfNames = {"Asam", "Asammmm"};
+        // Now we need to compare 1st and 2nd string
+        String firstStr = listOfNames[0];
+        String lastString = listOfNames[listOfNames.length - 1]; // last String
+        int i = 0;
+        while(i<firstStr.length() && i<lastString.length() && firstStr.charAt(i) == lastString.charAt(i)) { // untill both are equal len and same characters
+            i++;
+        }
+        System.out.println("Longest Common Prefix: "+ firstStr.substring(0, i));
     }
 }
