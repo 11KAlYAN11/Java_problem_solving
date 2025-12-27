@@ -16,6 +16,7 @@ public class FaQProb1 {
         intersection();
         union();
         isAnagram();
+        palindrome();
     }
 
     public static void removeDuplicates() {
@@ -283,6 +284,47 @@ public class FaQProb1 {
     System.out.println("Is Anagram: " + counts.isEmpty());
 }
 
+public static void palindrome() {
+    // Basic normal method 1
+    String s1 = "akkass";
+    s1 = s1.toLowerCase();
+    int i=0, j=s1.length()-1;
+    while(i<j) {
+        if(s1.charAt(i) != s1.charAt(j)) {
+            System.out.println("Not a Palindrome! ");
+            // return;
+            break;
+        }
+        i++;
+        j--;
+    }
+    System.out.println("Yes!, It's a Palindrome. ");
+
+    // Method 2
+    StringBuilder s2 = new StringBuilder();
+    int fromLast = s1.length()-1;
+    while(fromLast >= 0) {
+        s2.append(s1.charAt(fromLast));
+        fromLast--;
+    }
+    String res = new String(s2);
+    System.out.println("Is Palindrome: "+s1.equals(res)); // Is s1 and res are equal values
+
+    // method 3: 
+    String reversed = new StringBuilder(s1).reverse().toString();
+    System.out.println("Palindrome: "+s1.equals(reversed));
+
+    // Method 4: 
+    char[] arr = s1.toCharArray();
+    int i1 = 0, j1=arr.length-1;
+    while(i1 < j1) {
+        if(arr[i1++] != arr[j1--]) { 
+            System.out.println("Not Palindrome!"); 
+            return;
+        }
+    }
+    System.out.println("It's a Palindrome! ");
+}
 
 
 }
