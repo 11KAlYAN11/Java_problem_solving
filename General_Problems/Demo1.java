@@ -1,3 +1,5 @@
+
+
 public class Demo1 {
     
     public static void main(String[] args) {
@@ -9,34 +11,74 @@ public class Demo1 {
         System.out.println(isPrime(97));
         System.out.println(isPowerOfAnother(2L, 256L));
         System.out.println();
+        System.out.println(fibonacci(5));
+        System.out.println(fibonacci1(5));
         System.out.println(factorial(5));
-        System.out.println(factorialR(5));
+        System.out.println(factorial1(5));
+        rangeOfPrimes();
+        rangeOfPrimes1();
     }
-    static int factorialR(int n) {
+    static int factorial(int n) {
         if(n==1) {
             return 1;
         }
-        return n * factorialR(n-1);
+        return n * factorial(n-1);
     }
 
-    static int factorial(int n) {
+    static int factorial1(int n) {
+        int prdt = 1;
+        for(int i=1; i<=n ; i++) {
+            prdt *= i;
+        }
+        return prdt;
+    }
+
+    static int fibonacci(int n) {
+        // Note: always use a var as reference for calculating the sum and printig the fibos to sync with count or limit as asked
+        // n is treated as a value limit, not count n=4 means: 0,1,1,2 ❌ Treats n as a limit, not count
+        System.out.println("Fibonacci Series: ");
         // code here
-        if(n==0) return 0;
-        if(n==1) return 1;
-        int a=0;
-        int b=1;
-        int c = a+b;
+        if(n<=0) return -1;
+        int a=0, b=1;
         int sum = 0;
-        while(c <= n) {
-            c = a+b;
-            sum += c;
-            
+        for(int i=0; i < n; i++) {
+            System.out.print(a+" ");
+            sum += a;
+            int c = a+b;
             a=b;
             b=c;
-            System.out.print(c+" ");
         }
+        System.out.println();
         return sum;
     }
+    /*  Fibonacci has state variables (a, b, c)
+
+        Printing and summing must be aligned
+
+        If you sum c, you must also print c
+
+        If you print a/b, you must sum them */
+
+    static int fibonacci1(int limit) {
+        // here N is treated as a Limit means n=8 means till 8 value comes in result we have to print the fibos
+        int a=0, b=1, c=0, sum=0;
+        while(a <= limit) {
+            sum += a;
+            System.out.print(a+" ");
+            c = a+b;
+            a=b;
+            b=c;
+        }
+        System.out.println();
+        return sum;
+    }
+    /*
+    🎯 INTERVIEW GOLD ANSWER
+
+    “I prefer iterative Fibonacci over recursion to avoid exponential time and stack overflow.”
+
+    🔥 This line alone impresses interviewers.
+     */
 
     static Long isPowerOfAnother(Long X, Long Y){
         // code here
@@ -67,6 +109,38 @@ public class Demo1 {
             }
         }
         return true;
+    }
+
+    static void rangeOfPrimes() {
+        int start = 1, end = 100;
+        for(int i = start; i <= end; i++) {
+            // This is for corner and optimizations
+            if(i<= 2 || i%2 == 0) continue; // If <=2 or Even skip the loop
+            boolean isPrimee = true;  // outer is just for range
+            for(int j = 2; j*j < i; j++) { // i/2 -> i*i  means: sqrt(i)
+                if(i%j == 0) { 
+                    isPrimee = false;
+                    break;
+                }
+            }
+            if(isPrimee) System.out.print(i+" ");
+        }
+    }
+
+    static void rangeOfPrimes1() {
+        System.out.println();
+        int start = 1, end = 100;
+        while(start <= end) {
+            boolean isPrimee = true;
+            for(int i=2; i*i<start; i++) {
+                if(start%i  == 0) {
+                    isPrimee = false;
+                    break;
+                }
+            }
+            if(isPrimee) System.out.print(start+" ");
+            start++;
+        }
     }
 
     // Reversing of Digits using String approach (less work unlike n%10, prd = d*10+dig, n/=10;)

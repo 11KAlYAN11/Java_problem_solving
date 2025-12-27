@@ -16,7 +16,9 @@ public class FaQProb1 {
         intersection();
         union();
         isAnagram();
+        reverseString();
         palindrome();
+        primeOrNot();
     }
 
     public static void removeDuplicates() {
@@ -324,6 +326,35 @@ public static void palindrome() {
         }
     }
     System.out.println("It's a Palindrome! ");
+}
+public static void reverseString() {
+    String str = "Kumar"; // ramuk
+    char[] word = str.toCharArray();
+    for(int i=0,j=word.length-1; i<j; i++,j--) {
+        char temp = word[i];
+        word[i] = word[j];
+        word[j] = temp;
+    }
+    String res = new String(word);
+    System.out.println("Reversed String: "+res);
+
+    // Method 2
+    String reversed = new StringBuilder(str).reverse().toString();
+    System.out.println("Palindrome: "+str.equals(reversed));
+
+}
+public static void primeOrNot() {
+    int num = 99;
+    for(int i=2; i*i<num; i++) { // i<19/2  -> (num / 2) -> sqrt(num) = i*i as maths priciple sqrt goes tat side it will become that i*i
+        if(num %i == 0) {
+            System.out.println("Not Prime! ");
+            return;
+            // break;
+        }
+    }
+    System.out.println("Prime ");
+
+    // 
 }
 
 
