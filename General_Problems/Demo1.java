@@ -10,6 +10,7 @@ public class Demo1 {
         System.out.println(reverseDigits(123456789));
         System.out.println(isPrime(97));
         System.out.println(isPowerOfAnother(2L, 256L));
+        System.out.println(isPowerOfAnother1(2L, 256L));
         System.out.println();
         System.out.println(fibonacci(5));
         System.out.println(fibonacci1(5));
@@ -79,8 +80,19 @@ public class Demo1 {
 
     🔥 This line alone impresses interviewers.
      */
+    
 
     static Long isPowerOfAnother(Long X, Long Y){
+        System.out.println(" Is Y power of X: ");
+        /* 
+        🧪 EXAMPLES
+            X	Y	Explanation	Result
+            2	8	2³ = 8	1
+            3	27	3³ = 27	1
+            2	10	No power of 2 gives 10	0
+            1	1	1ⁿ = 1	1
+            1	5	1ⁿ ≠ 5	0*/
+
         // code here
         /*int pow = 1;
         while(pow < Y) pow *= X;
@@ -99,6 +111,45 @@ public class Demo1 {
         // Put is simple by using logerthimitic functions
         double res1 = Math.log(Y) / Math.log(X);
         return (res1%1 == 0)? 1L: 0L;
+        /* 🧠 WHY THIS WORKS (MATH EXPLANATION)
+
+            From math:
+
+            Y = Xⁿ
+
+
+            Take log on both sides:
+
+            log(Y) = n * log(X)
+
+
+            So:
+
+            n = log(Y) / log(X)
+
+
+            If n is an integer, then Y is a power of X.
+
+            🧪 EXAMPLE WALKTHROUGH
+            X = 2, Y = 8
+            log(8) / log(2) = 3.0 ✔
+
+            X = 2, Y = 10
+            log(10) / log(2) = 3.3219 ❌
+
+
+            Hence:
+
+            res1 % 1 == 0 */
+    }
+    static Long isPowerOfAnother1(Long X, Long Y){ 
+        System.out.println(" Is Y power of X: ");
+        // Brute Force logic
+        int pow = 1;
+        while(pow < Y) {
+            pow *= X; // 2*1 = 2, 2*2 = 4, 4*2 = 8, 8*2 = 16, 16*2 = 32, 32*2 = 64, 64*2 = 128 ..
+        }
+        return (pow == Y)? 1L : 0L;
     }
     static boolean isPrime(int n) {
         // code here
