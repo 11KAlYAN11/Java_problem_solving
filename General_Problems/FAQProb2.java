@@ -5,6 +5,17 @@ public class FAQProb2 {
         armstrongNumber(153);
         armstrongNumber1(153);
         randomNumber();
+        printWoUsingNumbers();
+        printEvenOddWoUsingMadulo();
+
+        // print smtg w/o using ;
+        // if (System.out.println("Hello") == null) {}
+
+        System.out.print("Hello");
+        System.out.printf("Hello");
+        System.out.append("Hello Man! ");
+        
+
     }
     static void armstrongNumber(int num) {
         // num = sum of (each digit ^ number_of_digits)
@@ -46,5 +57,39 @@ public class FAQProb2 {
 
         Random rand = new Random();
         System.out.println(rand.nextInt(100)); // Most flexible one for all int's, long, double etc..
+
+        char ch = 'A';
+        int num = ch; // 65 will be assigned
+        int num2 = 'a'; // 97 will be asigned
+        System.out.println(num+"   "+num2);
+
+        for(int i = 0; i <= 255; i++)  {  
+            System.out.println(" The ASCII value of " + (char)i + "  =  " + i);  
+        }  
+        
+    }
+
+    static void printWoUsingNumbers() {
+        int one = 'A'/'A'; // we can take any one ex: 'c'/'c' etc.
+        int hundread = 'd'; // d ASCII-> 100
+        for(int i=one; i<=hundread; i++) {
+            System.out.print(i+" ");
+        }
+    }
+
+    static void printEvenOddWoUsingMadulo() {
+        /*
+        📌 Bitwise trick
+
+        Even → last bit = 0
+
+        Odd → last bit = 1
+        */
+        for(int i=1; i<=20; i++) {
+            if((i&1) == 0) System.out.print(" Even: "+i);
+            if((i&1) == 1) System.out.print(" Odd: "+i);
+        }
+
+        
     }
 }

@@ -5,6 +5,9 @@ public class PatternPorgams {
         pattern3();
         pattern4();
         pattern5();
+        rambhous();
+
+        // I think for now this much about patterns is enough here with stars we can replace with numbers etc.. (will se later if req)
     }
     static void pattern1() {
         for(int i=1; i<=5; i++) {
@@ -38,6 +41,18 @@ public class PatternPorgams {
             }
             System.out.println();
         }
+
+        // Same as above program but bcz of space we got pyramid shape
+         for(int i=1; i<=5; i++) { // Here we can take 5 = n
+            for(int j=5-i; j>=1; j--) { // This loop is for spaces
+                System.out.print(" ");
+            }
+            for(int k=1; k<=i; k++) { // This loop is for stars
+                System.out.print(" *");
+            }
+            System.out.println();
+        }
+
     }
 
      static void pattern4() {
@@ -48,6 +63,18 @@ public class PatternPorgams {
             }
             for(int k=1; k <= i; k++) { // This loop is for stars
                 System.out.print("*");
+            }
+            System.out.println();
+        }
+        
+        // Same as above program but bcz of space we got pyramid shape
+
+        for(int i=5; i>=1; i--) { // Here we can take 5 = n
+            for(int j=5-i; j>=1; j--) { // This loop is for spaces
+                System.out.print(" ");
+            }
+            for(int k=1; k <= i; k++) { // This loop is for stars
+                System.out.print(" *");
             }
             System.out.println();
         }
@@ -75,5 +102,55 @@ public class PatternPorgams {
             System.out.println();
         }
 
+    }
+
+    static void rambhous() {
+        System.out.println();
+        // Just as above programs only some alignments changes
+         for(int i=1; i<=5; i++) { // Here we can take 5 = n
+            for(int j=5-i; j>=1; j--) { // This loop is for spaces
+                System.out.print(" ");
+            }
+            for(int k=1; k<=i; k++) { // This loop is for stars
+                System.out.print(" *");
+            }
+            System.out.println();
+        }
+        // Just as above programs only some alignments changes
+
+         for(int i=5; i>=1; i--) { // Here we can take 5 = n
+            for(int j=5-i; j>=1; j--) { // This loop is for spaces
+                System.out.print(" ");
+            }
+            for(int k=1; k <= i; k++) { // This loop is for stars
+                System.out.print(" *");
+            }
+            System.out.println();
+        }
+
+
+
+        System.out.println();
+
+        // Just as above programs only some alignments changes
+        for(int i=5; i>=1; i--) { // Here we can take 5 = n
+            for(int j=5-i; j>=1; j--) { // This loop is for spaces
+                System.out.print(" ");
+            }
+            for(int k=1; k <= i; k++) { // This loop is for stars
+                System.out.print(" *");
+            }
+            System.out.println();
+        }
+        // Just as above programs only some alignments changes
+          for(int i=1; i<=5; i++) { // Here we can take 5 = n
+            for(int j=5-i; j>=1; j--) { // This loop is for spaces
+                System.out.print(" ");
+            }
+            for(int k=1; k<=i; k++) { // This loop is for stars
+                System.out.print(" *");
+            }
+            System.out.println();
+        }
     }
 }
