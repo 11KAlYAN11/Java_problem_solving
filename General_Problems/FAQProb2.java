@@ -1,7 +1,10 @@
+import java.util.Random;
+
 public class FAQProb2 {
     public static void main(String[] args) {
         armstrongNumber(153);
         armstrongNumber1(153);
+        randomNumber();
     }
     static void armstrongNumber(int num) {
         // num = sum of (each digit ^ number_of_digits)
@@ -36,5 +39,12 @@ public class FAQProb2 {
             prdt *= base;
         }
         return prdt;
+    }
+
+    static void randomNumber() {
+        System.out.println((int)(Math.random() * 10)); // random numer from 0 to 9
+
+        Random rand = new Random();
+        System.out.println(rand.nextInt(100)); // Most flexible one for all int's, long, double etc..
     }
 }
