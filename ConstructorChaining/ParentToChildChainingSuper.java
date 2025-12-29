@@ -1,5 +1,3 @@
-
-
 package ConstructorChaining;
 
 class Person {
@@ -23,7 +21,7 @@ class Employee extends Person {
     }
     
 }
-public class ParentToChildChaining {
+public class ParentToChildChainingSuper {
     public static void main(String[] args) {
         Employee e1 = new Employee(1, "Asam");
         e1.display();

@@ -1,6 +1,3 @@
-
-
-
 package ConstructorChaining;
 
 class Car {
@@ -30,7 +27,7 @@ class Car {
         System.out.println("Car: "+brand+",  "+ "speed: "+speed);
     }
 }
-public class ThisConstructor {
+public class ThisConstructorSameClass {
     public static void main(String[] args) {
         Car c1 = new Car();
         c1.display();
