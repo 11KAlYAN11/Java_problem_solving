@@ -1,6 +1,7 @@
+package General_Problems;
+
 import java.util.Random;
 
-package General_Problems;
 
 public class FAQProb2 {
     public static void main(String[] args) {

@@ -1,5 +1,6 @@
-import java.util.Arrays;
 package DP;
+
+import java.util.Arrays;
 
 public class ClimbingStairsDP {
     // will take 2 static arrays to access accross class

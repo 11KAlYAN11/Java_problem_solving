@@ -1,6 +1,8 @@
-import java.util.*;
-
 package basics;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 class Employee {
     String name;

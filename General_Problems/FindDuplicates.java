@@ -1,9 +1,11 @@
+package General_Problems;
+
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-package General_Problems;
 
 public class FindDuplicates {
     public static List<Integer> findDuplicates(int[] arr) {

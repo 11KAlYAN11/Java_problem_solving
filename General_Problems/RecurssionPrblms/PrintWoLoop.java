@@ -1,7 +1,7 @@
+package General_Problems.RecurssionPrblms;
 
 import java.util.stream.IntStream;
 
-package RecurssionPrblms;
 
 public class PrintWoLoop {
     static void print(int i) {

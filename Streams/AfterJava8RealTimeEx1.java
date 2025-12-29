@@ -1,7 +1,8 @@
+package Streams;
+
 import java.util.Arrays;
 import java.util.List;
 
-package Streams;
 
 class Employee {
     private String name;

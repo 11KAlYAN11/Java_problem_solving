@@ -1,6 +1,7 @@
+package DP;
+
 import java.util.Arrays;
 
-package DP;
 
 public class Fibno1 {
 

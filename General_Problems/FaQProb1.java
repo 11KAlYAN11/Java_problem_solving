@@ -1,4 +1,7 @@
 
+package General_Problems;
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,7 +12,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-package General_Problems;
 
 public class FaQProb1 {
     public static void main(String[] args) {

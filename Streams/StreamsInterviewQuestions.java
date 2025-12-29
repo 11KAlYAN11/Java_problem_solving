@@ -1,4 +1,7 @@
 
+package Streams;
+
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
@@ -9,7 +12,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-package Streams;
 
 public class StreamsInterviewQuestions {
 

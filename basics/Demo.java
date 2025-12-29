@@ -1,6 +1,6 @@
-import java.util.*;
 package basics;
 
+import java.util.Stack;
 public class Demo {
     public static boolean validParenthisis(String s) {
         //Easy method

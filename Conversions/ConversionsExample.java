@@ -1,9 +1,10 @@
+package Conversions;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-package Conversions;
 
 public class ConversionsExample {
     public static void main(String[] args) {

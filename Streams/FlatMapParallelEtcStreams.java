@@ -1,9 +1,9 @@
+package Streams;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-package Streams;
 
 public class FlatMapParallelEtcStreams {
 
