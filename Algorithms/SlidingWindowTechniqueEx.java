@@ -1,4 +1,4 @@
-package com.learning.java.algorithms;
+package Algorithms;
 
 public class SlidingWindowTechniqueEx {
     

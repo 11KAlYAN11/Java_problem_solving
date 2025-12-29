@@ -1,4 +1,4 @@
-package com.learning.java.oops;
+package OOPS;
 
 public class AnimalCatDogMain {
     public static void main(String[] args) {

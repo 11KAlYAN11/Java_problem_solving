@@ -4,7 +4,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-package com.learning.java.streams;
+package Streams;
 
 public class StreamsTerminalOperatoins {
     public static void main(String[] args) {

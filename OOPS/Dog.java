@@ -1,4 +1,4 @@
-package com.learning.java.oops;
+package OOPS;
 
 public class Dog extends Animal {
     // Constructor for Dog Class

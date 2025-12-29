@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-package com.learning.java.general_problems;
+package General_Problems;
 
 public class FaQProb1 {
     public static void main(String[] args) {

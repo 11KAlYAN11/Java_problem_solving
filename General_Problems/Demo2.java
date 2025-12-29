@@ -1,6 +1,6 @@
 import java.util.function.Consumer;
 
-package com.learning.java.general_problems;
+package General_Problems;
 
 public class Demo2 {
     public static void main(String[] args) {

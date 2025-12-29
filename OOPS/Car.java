@@ -1,4 +1,4 @@
-package com.learning.java.oops;
+package OOPS;
 
 // Base class (Parent)
 // This class demonstrates how different types of methods can be invoked from child classes using super, 

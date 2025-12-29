@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-package com.learning.java.streams;
+package Streams;
 
 class Employee {
     private String name;

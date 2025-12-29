@@ -31,6 +31,7 @@ if [ -z "$PACKAGE_LINE" ]; then
     exit 1
 fi
 
+# Get package name (simple, matches directory name)
 PACKAGE_NAME=$(echo "$PACKAGE_LINE" | sed 's/package //' | sed 's/;//' | tr -d ' ')
 
 # Get class name (filename without extension)

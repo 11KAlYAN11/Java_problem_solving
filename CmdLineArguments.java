@@ -1,4 +1,4 @@
-package com.learning.java.basics;
+package basics;
 
 public class CmdLineArguments {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-package com.learning.java.dp;
+package DP;
 
 public class Fibno1 {
 

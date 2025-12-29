@@ -1,4 +1,4 @@
-package com.learning.java.threads;
+package Threads;
 
 public class ThreadBasic extends Thread {
     public static void main(String[] args) {

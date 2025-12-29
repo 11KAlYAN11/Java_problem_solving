@@ -1,4 +1,4 @@
-package com.learning.java.oops;
+package OOPS;
 
 /**
  * BankAccount interface defines the methods for bank account operations.

@@ -1,6 +1,6 @@
 import java.util.List;
 
-package com.learning.java.lambdafuninter;
+package LambdaFunInter;
 
 public class GenericMethodExample {
 

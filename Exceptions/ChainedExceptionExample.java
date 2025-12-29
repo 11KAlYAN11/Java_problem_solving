@@ -1,4 +1,4 @@
-package com.learning.java.exceptions;
+package Exceptions;
 
 public class ChainedExceptionExample {
     static void readFile() throws Exception {

@@ -1,4 +1,4 @@
-package com.learning.java.mypackage;
+package myPackage;
 
 public class MyClass {
     public static void greet() {

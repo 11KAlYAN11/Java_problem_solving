@@ -7,7 +7,7 @@ import java.util.Vector;
  * Resources for all this Note book & Note pad Don't  forgot
  */
 
-package com.learning.java.recurssion;
+package Recurssion;
 
 public class PrintAllSubsets {
     public static void PrintAllSubsetsOfArray(Vector<Integer> arr, Vector<Integer> res, int i) {

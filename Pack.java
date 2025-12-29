@@ -1,7 +1,7 @@
 //import myPackage.MyClass;
 import myPackage.*;
 
-package com.learning.java.basics;
+package basics;
 
 public class Pack {
     public static void main(String[] args) {

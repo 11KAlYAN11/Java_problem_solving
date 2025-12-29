@@ -1,4 +1,4 @@
-package com.learning.java.mypackage2;
+package myPackage2;
 
 public class Shiva {
     public static void main(String[] args) {

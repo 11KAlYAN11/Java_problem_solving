@@ -1,6 +1,6 @@
 
 
-package com.learning.java.general_problems;
+package General_Problems;
 
 public class Demo1 {
     

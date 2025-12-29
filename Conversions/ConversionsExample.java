@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-package com.learning.java.conversions;
+package Conversions;
 
 public class ConversionsExample {
     public static void main(String[] args) {

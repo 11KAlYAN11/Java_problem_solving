@@ -1,4 +1,4 @@
-package com.learning.java.lambdafuninter;
+package LambdaFunInter;
 
 interface Hello {
     void sayhello();

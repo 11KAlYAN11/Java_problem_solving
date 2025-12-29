@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-package com.learning.java.streams;
+package Streams;
 
 public class TypesOfStreams {
 

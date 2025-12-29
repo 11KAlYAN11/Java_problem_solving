@@ -1,7 +1,7 @@
 /* import java.util.LinkedHashMap;
 import java.util.Map; */
 
-package com.learning.java.conversions;
+package Conversions;
 
 public class ConversionsPracticeExample {
     public static void main(String[] args) {

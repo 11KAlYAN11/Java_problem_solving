@@ -1,4 +1,4 @@
-package com.learning.java.oops;
+package OOPS;
 
 /**
  * Tree is an abstract class that represents a tree with a name.

@@ -1,4 +1,4 @@
-package com.learning.java.general_problems;
+package General_Problems;
 
 public class FindLargestElements {
     public static void findLargest(int[] arr) {

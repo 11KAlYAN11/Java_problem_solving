@@ -1,4 +1,4 @@
-package com.learning.java.threads;
+package Threads;
 
 class MyTaskThread extends Thread {
     private String taskName;

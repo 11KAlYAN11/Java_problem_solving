@@ -1,4 +1,4 @@
-package com.learning.java.files;
+package Files;
 
 import java.io.IOException;
 import java.nio.file.*;

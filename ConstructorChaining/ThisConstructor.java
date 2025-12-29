@@ -1,7 +1,7 @@
 
 
 
-package com.learning.java.constructorchaining;
+package ConstructorChaining;
 
 class Car {
     String brand;

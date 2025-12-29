@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-package com.learning.java.general_problems;
+package General_Problems;
 
 public class FindDuplicates {
     public static List<Integer> findDuplicates(int[] arr) {

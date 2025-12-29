@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
-package com.learning.java.lambdafuninter;
+package LambdaFunInter;
 
 public class LambdaEx1 {
     public static void main(String[] args) {

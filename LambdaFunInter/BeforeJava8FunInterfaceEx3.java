@@ -1,4 +1,4 @@
-package com.learning.java.lambdafuninter;
+package LambdaFunInter;
 
 interface Multiply {
     int multiply(int a, int b);

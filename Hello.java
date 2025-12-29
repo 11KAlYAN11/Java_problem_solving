@@ -1,4 +1,4 @@
-package com.learning.java.basics;
+package basics;
 
 public class Hello {
     

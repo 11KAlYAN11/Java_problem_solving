@@ -1,4 +1,4 @@
-package com.learning.java.collections;
+package Collections;
 
 import java.util.Comparator;
 import java.util.TreeSet;

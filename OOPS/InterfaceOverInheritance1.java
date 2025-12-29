@@ -1,4 +1,4 @@
-package com.learning.java.oops;
+package OOPS;
 
 // RideService interface defines a method for booking rides.
 interface RideService {

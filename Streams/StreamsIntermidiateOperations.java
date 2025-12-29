@@ -1,7 +1,7 @@
 
 import java.util.List;
 
-package com.learning.java.streams;
+package Streams;
 
 public class StreamsIntermidiateOperations {
 

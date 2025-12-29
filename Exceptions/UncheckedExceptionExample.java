@@ -1,4 +1,4 @@
-package com.learning.java.exceptions;
+package Exceptions;
 
 public class UncheckedExceptionExample {
     public static void main(String[] args) {

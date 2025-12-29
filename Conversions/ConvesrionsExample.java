@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-package com.learning.java.conversions;
+package Conversions;
 
 public class ConvesrionsExample {
     public static void main(String[] args) {

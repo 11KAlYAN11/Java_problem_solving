@@ -1,4 +1,4 @@
-package com.learning.java.exceptions;
+package Exceptions;
 
 public class CustomizeException extends Exception {
     public CustomizeException(String message) {

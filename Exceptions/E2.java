@@ -1,4 +1,4 @@
-package com.learning.java.exceptions;
+package Exceptions;
 
 public class E2 {
     // This method demonstrates throwing unchecked exceptions based on input conditions.

@@ -1,4 +1,4 @@
-package com.learning.java.jar.src;
+package src;
 
 public class Main {
     public void display() {

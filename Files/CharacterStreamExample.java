@@ -1,4 +1,4 @@
-package com.learning.java.files;
+package Files;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

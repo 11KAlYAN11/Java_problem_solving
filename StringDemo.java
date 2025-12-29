@@ -1,6 +1,6 @@
 import java.util.*;
 
-package com.learning.java.basics;
+package basics;
 
 public class StringDemo {
     

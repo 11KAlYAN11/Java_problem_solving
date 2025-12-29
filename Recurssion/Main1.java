@@ -1,4 +1,4 @@
-package com.learning.java.recurssion;
+package Recurssion;
 
 public class Main1 {
     public static void main(String[] args) {

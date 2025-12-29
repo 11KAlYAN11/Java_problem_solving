@@ -1,4 +1,4 @@
-package com.learning.java.opps_adv;
+package OPPS_ADV;
 
 /*
  * =======================

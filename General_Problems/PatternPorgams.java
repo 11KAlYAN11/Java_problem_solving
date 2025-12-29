@@ -1,4 +1,4 @@
-package com.learning.java.general_problems;
+package General_Problems;
 
 public class PatternPorgams {
     public static void main(String[] args) {

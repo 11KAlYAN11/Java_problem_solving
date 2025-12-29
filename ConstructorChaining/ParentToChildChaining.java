@@ -1,6 +1,6 @@
 
 
-package com.learning.java.constructorchaining;
+package ConstructorChaining;
 
 class Person {
     String name;
