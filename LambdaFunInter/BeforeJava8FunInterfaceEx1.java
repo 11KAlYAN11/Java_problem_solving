@@ -1,4 +1,6 @@
 // Step 1: Create an interface with ONE abstract method
+package com.learning.java.lambdafuninter;
+
 interface Add {
     int addParameters(int a, int b);  // Contract: whoever implements must define this
 }

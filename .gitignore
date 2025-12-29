@@ -1,0 +1,44 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build directories
+build/
+target/
+out/
+bin/
+dist/
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+
+# Python scripts (optional - remove if you want to commit these)
+# fix_packages.py
+# fix_existing_packages.py
+

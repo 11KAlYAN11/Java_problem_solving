@@ -1,3 +1,5 @@
+package com.learning.java.lambdafuninter;
+
 interface Hello {
     void sayhello();
 }

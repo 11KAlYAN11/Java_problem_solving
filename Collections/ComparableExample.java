@@ -1,3 +1,5 @@
+package com.learning.java.collections;
+
 import java.util.TreeSet;
 
 class Employee2 implements Comparable<Employee2> {

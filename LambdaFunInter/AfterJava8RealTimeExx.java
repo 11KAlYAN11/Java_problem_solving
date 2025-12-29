@@ -1,4 +1,6 @@
 
+package com.learning.java.lambdafuninter;
+
 interface DiscountRule {
 
     public double apply(double price);

@@ -4,6 +4,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+package com.learning.java.streams;
+
 public class StreamsTerminalOperatoins {
     public static void main(String[] args) {
         List<Integer> list1 = List.of(1,4,6,8,10,22,40,100, -1);

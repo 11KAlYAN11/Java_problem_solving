@@ -1,3 +1,5 @@
+package com.learning.java.recurssion;
+
 public class Main1 {
     public static void main(String[] args) {
         printNum(10);

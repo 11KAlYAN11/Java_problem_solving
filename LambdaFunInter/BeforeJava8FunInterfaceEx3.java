@@ -1,3 +1,5 @@
+package com.learning.java.lambdafuninter;
+
 interface Multiply {
     int multiply(int a, int b);
 }

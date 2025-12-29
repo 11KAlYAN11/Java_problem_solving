@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+package com.learning.java.streams;
+
 public class TypesOfStreams {
 
     public static void main(String[] args) {

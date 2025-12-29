@@ -1,4 +1,4 @@
-package OOPS;
+package com.learning.java.oops;
 
 // Flyable interface defines a method for flying behavior.
 interface Flyable {

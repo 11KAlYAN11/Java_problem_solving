@@ -1,5 +1,7 @@
 import java.util.*;
 
+package com.learning.java.basics;
+
 class Employee {
     String name;
     int id;

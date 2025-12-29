@@ -1,4 +1,4 @@
-package Exceptions;
+package com.learning.java.exceptions;
 
 public class E1 {
     public static void divide(int num, int den) {

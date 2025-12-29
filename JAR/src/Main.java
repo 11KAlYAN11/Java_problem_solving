@@ -1,3 +1,5 @@
+package com.learning.java.jar.src;
+
 public class Main {
     public void display() {
         System.out.println("Display method called in JAR Main.!");

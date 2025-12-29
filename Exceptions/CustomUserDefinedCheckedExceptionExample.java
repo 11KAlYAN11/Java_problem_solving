@@ -1,4 +1,4 @@
-package Exceptions;
+package com.learning.java.exceptions;
 
 // Defining a custom checked exception
 // Here we are extending the Exception superclass because Exception is the parent for all checked exceptions

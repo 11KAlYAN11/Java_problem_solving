@@ -1,4 +1,6 @@
 import java.util.*;
+package com.learning.java.basics;
+
 public class Demo {
     public static boolean validParenthisis(String s) {
         //Easy method

@@ -3,6 +3,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+package com.learning.java.streams;
+
 public class FlatMapParallelEtcStreams {
 
     public static void main(String[] args) {

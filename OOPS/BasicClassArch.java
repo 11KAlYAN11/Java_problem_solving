@@ -1,4 +1,4 @@
-package OOPS;
+package com.learning.java.oops;
 /*
  * Class
 A class is a blueprint or template that defines the properties (attributes) and behaviors (methods) shared by all objects of that type.

@@ -1,6 +1,8 @@
 
 import java.util.stream.IntStream;
 
+package com.learning.java.general_problems.recurssionprblms;
+
 public class PrintWoLoop {
     static void print(int i) {
         if(i>100) return;

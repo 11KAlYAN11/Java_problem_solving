@@ -1,5 +1,7 @@
 import java.util.Arrays;
 
+package com.learning.java.dp;
+
 public class Fibno1 {
 
     // Declare memoArray as a static variable to access it in main

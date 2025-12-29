@@ -1,5 +1,7 @@
 
 
+package com.learning.java.lambdafuninter;
+
 interface Discount {
     public double apply(double amount);
 }

@@ -1,6 +1,8 @@
 
 import java.util.List;
 
+package com.learning.java.streams;
+
 public class StreamsIntermidiateOperations {
 
     public static void main(String[] args) {

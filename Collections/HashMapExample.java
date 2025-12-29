@@ -1,4 +1,4 @@
-package Collections;
+package com.learning.java.collections;
 
 import java.util.*;
 

@@ -1,3 +1,5 @@
+package com.learning.java.basics;
+
 public class Hello {
     
    

@@ -1,6 +1,8 @@
 import java.util.Arrays;
 import java.util.List;
 
+package com.learning.java.streams;
+
 class Employee {
     private String name;
     private int salary;

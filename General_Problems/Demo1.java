@@ -1,5 +1,7 @@
 
 
+package com.learning.java.general_problems;
+
 public class Demo1 {
     
     public static void main(String[] args) {

@@ -1,8 +1,11 @@
+package com.learning.java.collections;
+
 import java.util.Comparator;
 import java.util.TreeSet;
 /*
  * Comparator<Employee3>:
-The Comparator interface is part of Java's java.util package and is used to define a custom comparison logic for objects. By implementing Comparator, we are providing a way to compare two Employee3 objects based on some criteria.
+ *
+ * The Comparator interface is part of Java's java.util package and is used to define a custom comparison logic for objects. By implementing Comparator, we are providing a way to compare two Employee3 objects based on some criteria.
  */
 class Employee3 implements Comparable<Employee3> {
     int id;

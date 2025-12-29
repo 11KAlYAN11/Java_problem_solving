@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+package com.learning.java.general_problems;
+
 public class FindDuplicates {
     public static List<Integer> findDuplicates(int[] arr) {
         HashMap<Integer, Integer> counts = new HashMap<>();

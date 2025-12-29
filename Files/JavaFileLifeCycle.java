@@ -1,4 +1,4 @@
-package Files;
+package com.learning.java.files;
 
 import java.io.File;
 import java.io.FileWriter;

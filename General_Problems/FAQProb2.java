@@ -1,5 +1,7 @@
 import java.util.Random;
 
+package com.learning.java.general_problems;
+
 public class FAQProb2 {
     public static void main(String[] args) {
         armstrongNumber(153);

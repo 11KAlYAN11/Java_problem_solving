@@ -1,4 +1,6 @@
 import java.util.Arrays;
+package com.learning.java.dp;
+
 public class ClimbingStairsDP {
     // will take 2 static arrays to access accross class
      private static int[] res;

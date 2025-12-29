@@ -1,4 +1,4 @@
-package OOPS;
+package com.learning.java.oops;
 
 // Abstract class providing Structure (Common properties & methods)
 // This class serves as a blueprint for all vehicles, enforcing that all subclasses must implement the startEngine() method.

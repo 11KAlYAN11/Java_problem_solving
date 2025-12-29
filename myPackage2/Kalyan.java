@@ -1,4 +1,4 @@
-package myPackage2;
+package com.learning.java.mypackage2;
 
 public class Kalyan {
     public void wish() {

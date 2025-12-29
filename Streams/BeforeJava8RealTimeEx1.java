@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+package com.learning.java.streams;
+
 class Employee {
     private String name;
     private int salary;

@@ -1,3 +1,5 @@
+package com.learning.java.lambdafuninter;
+
 interface Add {
     int addParameters(int a, int b); // Functional interface (1 abstract method only)
 }

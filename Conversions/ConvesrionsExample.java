@@ -3,6 +3,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+package com.learning.java.conversions;
+
 public class ConvesrionsExample {
     public static void main(String[] args) {
         // 1) arr[] to ArrList[]

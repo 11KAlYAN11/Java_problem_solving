@@ -1,6 +1,8 @@
 
 
 
+package com.learning.java.constructorchaining;
+
 class Car {
     String brand;
     int speed;

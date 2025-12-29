@@ -1,4 +1,4 @@
-package OOPS;
+package com.learning.java.oops;
 class Machine {
     static void operate() {
         System.out.println("Machine is operating");

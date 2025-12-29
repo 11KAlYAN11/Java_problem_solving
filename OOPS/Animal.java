@@ -1,4 +1,4 @@
-package OOPS;
+package com.learning.java.oops;
 
 // Abstract Base class (Cannot be Instantiated)
 // This class serves as a blueprint for all animals, enforcing that all subclasses must implement specific behaviors.

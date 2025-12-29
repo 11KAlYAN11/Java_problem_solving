@@ -1,3 +1,5 @@
+package com.learning.java.lambdafuninter;
+
 interface Hello {
     void sayHello(); // this interface is just like a contract who ever implements thsi has to add logic for thsi that is the contract
 

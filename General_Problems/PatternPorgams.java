@@ -1,3 +1,5 @@
+package com.learning.java.general_problems;
+
 public class PatternPorgams {
     public static void main(String[] args) {
         pattern1();

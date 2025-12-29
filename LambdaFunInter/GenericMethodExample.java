@@ -1,5 +1,7 @@
 import java.util.List;
 
+package com.learning.java.lambdafuninter;
+
 public class GenericMethodExample {
 
     // Generic method to find the maximum element in a list

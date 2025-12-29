@@ -1,4 +1,4 @@
-package Exceptions;
+package com.learning.java.exceptions;
 
 public class ExceptionVsError {
     // This method demonstrates an infinite recursive method that leads to a StackOverflowError

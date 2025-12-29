@@ -1,4 +1,4 @@
-package Exceptions;
+package com.learning.java.exceptions;
 
 // Here we are implementing the Custom User defined Unchecked exception
 // Here we are extending RuntimeException because it is the parent for defining custom unchecked exceptions at runtime
