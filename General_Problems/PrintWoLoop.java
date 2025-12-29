@@ -1,4 +1,4 @@
-package General_Problems.RecurssionPrblms;
+package General_Problems;
 
 import java.util.stream.IntStream;
 
