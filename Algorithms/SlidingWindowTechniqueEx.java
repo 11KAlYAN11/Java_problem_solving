@@ -1,6 +1,6 @@
 package Algorithms;
 
-public class SlidingWindowTechniqueEx {
+public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
     
     public static void main(String[] args) {
         // For Fixed-Size Sliding Window
