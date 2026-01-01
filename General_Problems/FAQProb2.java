@@ -10,6 +10,7 @@ public class FAQProb2 {
         randomNumber();
         printWoUsingNumbers();
         printEvenOddWoUsingMadulo();
+        isLeapYear();
 
         // print smtg w/o using ;
         // if (System.out.println("Hello") == null) {}
@@ -94,5 +95,17 @@ public class FAQProb2 {
         }
 
         
+    }
+
+    static void isLeapYear() {
+        System.out.println();
+        int year = 2025;
+        if(year % 400 == 0) System.out.println("Yes");
+        else if(year %100 == 0) System.out.println("No");
+        else if(year %4 == 0) System.out.println("Yes");
+        else System.out.println("No");
+
+        if((year%4 == 0 && year % 100 != 0) || (year % 400 == 0)) System.out.println("Yes");
+        else System.out.println("NO");
     }
 }
