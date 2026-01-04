@@ -1,5 +1,10 @@
 package General_Problems;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 
@@ -11,15 +16,40 @@ public class FAQProb2 {
         printWoUsingNumbers();
         printEvenOddWoUsingMadulo();
         isLeapYear();
+        majorityElement();
 
         // print smtg w/o using ;
         // if (System.out.println("Hello") == null) {}
-
+/* 
         System.out.print("Hello");
         System.out.printf("Hello");
         System.out.append("Hello Man! ");
-        
+         */
 
+    }
+
+    static void majorityElement() {
+        System.out.println();
+        int[] arr = {2, 2, 3, 1, 3, 2, 1, 1};
+        int n = 3; // will keep this constant 
+        Map<Integer, Integer> freqMap = new HashMap<>();
+        List<Integer> res = new ArrayList<>();
+
+        for(int ele: arr) {
+            freqMap.put(ele, freqMap.getOrDefault(ele, 0) + 1);
+        }
+
+        // if(res.size() == 0 || res,.size() == 1) return res; // we can use like this for optimization
+
+        for(Map.Entry<Integer, Integer> e: freqMap.entrySet()) {
+            if(e.getValue() > arr.length / n) {
+                res.add(e.getKey());
+            }
+        }
+
+        // To make the res in sorted
+        Collections.sort(res);
+        res.forEach(System.out::println);
     }
     static void armstrongNumber(int num) {
         // num = sum of (each digit ^ number_of_digits)
