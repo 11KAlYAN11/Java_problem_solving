@@ -110,6 +110,90 @@ class MaxSubarrayKadanes {
      */
 }
 
+
+
+/*
+    PROBLEM:
+    Find maximum subarray sum in a CIRCULAR array.
+
+    CORE IDEA (MUST REMEMBER FOREVER):
+
+    There are only TWO possibilities for maximum sum:
+
+    1) Normal subarray (does NOT wrap)
+       -> solved by normal Kadane's (maxKadane)
+
+    2) Circular subarray (wraps from end to start)
+       -> remove the MINIMUM subarray from total sum
+       -> circularSum = totalSum - minKadane
+
+    FINAL ANSWER:
+    max(maxKadane, circularSum)
+
+    SPECIAL CASE:
+    If all numbers are negative:
+    -> maxKadane itself is the answer
+*/
+
+static int maxCircularKadane(int[] arr) {
+
+    int n = arr.length;
+
+    // ---------- Step 1: Initialize everything ----------
+    int totalSum = arr[0];
+
+    int curMax = arr[0];
+    int maxKadane = arr[0];
+
+    int curMin = arr[0];
+    int minKadane = arr[0];
+
+    // ---------- Step 2: Single loop does EVERYTHING ----------
+    for (int i = 1; i < n; i++) {
+
+        int val = arr[i];
+
+        // ----- Normal Kadane (MAX subarray) -----
+        // Either start fresh from current element
+        // OR extend previous subarray
+        curMax = Math.max(val, curMax + val);
+        maxKadane = Math.max(maxKadane, curMax);
+
+        // ----- Reverse Kadane (MIN subarray) -----
+        // Used for circular logic
+        curMin = Math.min(val, curMin + val);
+        minKadane = Math.min(minKadane, curMin);
+
+        // ----- Total sum of array -----
+        totalSum += val;
+    }
+
+    // ---------- Step 3: IMPORTANT EDGE CASE ----------
+    // If all numbers are negative, circular sum becomes 0 (invalid)
+    // So directly return maxKadane
+    if (maxKadane < 0) {
+        return maxKadane;
+    }
+
+    // ---------- Step 4: Circular subarray sum ----------
+    int circularSum = totalSum - minKadane;
+
+    // ---------- Step 5: Final answer ----------
+    return Math.max(maxKadane, circularSum);
+
+    /*
+     // Edge case: all elements positive
+    if (minKadane > 0) {
+        return minKadane;
+    }
+
+    int circularMin = totalSum - maxKadane;
+
+    return Math.min(minKadane, circularMin);    // for MinCircularSubarr minCircularKadanes
+     */
+}
+
+
     
 
     // MAIN METHOD — only for testing & comparison
@@ -128,5 +212,9 @@ class MaxSubarrayKadanes {
 
         System.out.println(maxProductSubarray(arr3));
         System.out.println(maxProductSubarray(arr2));
+
+        int[] arr4 = {8, -8, 9, -9, 10, -11, 12};
+        System.out.println(maxCircularKadane((arr3)));
+        System.out.println(maxCircularKadane((arr4)));
     }
 }
