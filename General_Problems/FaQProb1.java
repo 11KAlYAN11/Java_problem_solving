@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,8 @@ public class FaQProb1 {
         intersection();
         union();
         isAnagram();
+        firstUniqueChar();
+        firstUniqueChar1();
         reverseString();
         palindrome();
         primeOrNot();
@@ -359,6 +362,105 @@ public static void primeOrNot() {
     System.out.println("Prime ");
 
     // 
+}
+
+public static void firstUniqueChar() {
+    String s = "geeksforgeeks";
+    // Method1 Using Linked Hash Map (Heavy) 0(n)TC 0(n) SC
+    LinkedHashMap<Character, Integer> freqMap = new LinkedHashMap<>();
+
+    // Build the freqMap char Array
+    for(char c: s.toCharArray()) freqMap.put(c, freqMap.getOrDefault(c, 0) + 1);
+
+    // traverse the freqMap array where ever value == 1 that was first non repeated char else $
+    for(Map.Entry<Character, Integer> entry: freqMap.entrySet()) {
+        if(entry.getValue() == 1) {
+            System.out.println("First non repeated char is: "+entry.getKey());
+            return;
+        }
+    }
+    System.out.println("No non rep char so NTG");
+
+}
+public static void firstUniqueChar1() {
+    // Method 2 Using the freq[] array via int a = 'c'-'a' = 12 .. like wise
+    String s = "geeksforgeeks";
+    int[] freq = new int[26]; // cuz alphabets is 26 when we do one char minus other all values fall under the same 0 to 25 lenght ex: int a = 'x' - 'a' = 14 ex
+    // build the freq array
+    for(char c: s.toCharArray()) {
+        freq[c - 'a'] ++; // any char minus with 'a' values falls under 0 to 25
+    }
+
+    for(char c: s.toCharArray()) {
+        if(freq[c - 'a'] == 1) {
+            System.out.println("First non repeated char is: "+c);
+            return;
+        }
+    }
+    System.out.println("No non repeated chars: $");
+
+    /*
+
+    What is c - 'a' called?
+            🔹 Short answer
+
+            It is called character indexing using offset
+            (or informally) alphabet indexing technique
+    2️⃣ The ONLY formula you need to remember
+                index = c - 'a';
+
+                What does this mean?
+
+                In Java:
+
+                char is internally a number (Unicode value)
+
+                'a', 'b', 'c' are sequential
+
+                Example:
+                'g' - 'a'
+                = 103 - 97
+                = 6
+
+
+                So:
+
+                freq[6] ↔ 'g'
+
+
+
+                4️⃣ Step-by-step dry run (VERY IMPORTANT)
+
+                        Input:
+
+                        s = "geeksforgeeks"
+
+                        First loop — frequency build
+                        Char  c - 'a'  freq[index]
+                        g	6	1
+                        e	4	1
+                        e	4	2
+                        k	10	1
+                        s	18	1
+                        f	5	1
+                        o	14	1
+                        r	17	1
+                        g	6	2
+                        e	4	3
+                        e	4	4
+                        k	10	2
+                        s	18	2
+                        Second loop — check order
+                        Char	freq
+                        g	2 ❌
+                        e	4 ❌
+                        e	4 ❌
+                        k	2 ❌
+                        s	2 ❌
+                        f	1 ✅ → RETURN
+
+                        ✔ Answer: f
+                            */
 }
 
 
