@@ -1,5 +1,8 @@
 package Algorithms;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
     
     public static void main(String[] args) {
@@ -7,6 +10,12 @@ public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
         int[] arr = {2, 1, 5, 1, 3, 2};
         int k = 3;
         System.out.println("Max sum of " + k + " consecutive elements: " + maxSumKWindow(arr, k)); // Output: 9
+        System.out.println("Max sum of " + k + " consecutive elements: " + maxSumKWindow1(arr, k)); // Output: 9
+
+        int[] arrx = {12, -1, -7, 8, -15, 30, 16, 28};
+        firstNegativeEleInWindow(arrx, k); // Output: 9
+
+
 
         // Variable-Size Sliding Window
         int[] arr1 = {2, 3, 1, 2, 4, 3};
@@ -33,6 +42,74 @@ public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
         }
 
         return maxSum;
+    }
+
+    public static int maxSumKWindow1(int[] arr, int k) {
+
+        /*
+        🔁 Dry Run Snapshot
+            Window	Elements	Sum
+            [0–2]	2,1,5	8
+            [1–3]	1,5,1	7
+            [2–4]	5,1,3	9 ✅
+            [3–5]	1,3,2	6
+
+            [ window of size K ] → slides one step right
+
+            Window size = constant k
+
+            Both pointers move together
+
+            Add incoming element
+
+            Remove outgoing element */
+
+        int maxSum = 0;
+        int sum = 0;
+        int idx = 0;
+        for(int i=0; i<arr.length; i++) {
+            sum += arr[i];
+            if(i-idx+1 == k) { // window size reached
+                maxSum = Math.max(maxSum, sum);
+                sum -= arr[idx]; // Remove outgoing element
+                idx++; // SLIDE THE WINDOW
+            }
+        }
+        return maxSum;
+    }
+
+    public static void firstNegativeEleInWindow(int[] arr, int k) {
+        /*
+        🔥 Trick Used
+
+            We use a Queue to track negatives inside window.
+
+            🧠 KEY OBSERVATION
+
+            Queue holds only window elements
+
+            Remove element when it goes out of window
+
+            Peek gives first negative
+         */
+        Queue<Integer> queue = new LinkedList<>();
+        int i = 0; // to track loop from window size reached
+        for(int j=0; j<arr.length; j++) {
+            // Here we just need negative if jth ele is -Ve will add to queue
+            if(arr[j] < 0) queue.add(arr[j]);
+
+            if(j-i +1 == k) { // Window size reached
+                if(queue.isEmpty()) System.out.println(" "+'0'); // No negatives in this window
+                else System.out.print(" "+queue.peek()); // FIFO 1st element of queue
+
+                // Now is queue is not empty && remove the outdated ele's from peek (Remove element when it goes out of window)
+                if(!queue.isEmpty() && arr[i] == queue.peek()) queue.poll(); // Remove that outdated element
+
+                // Now Main Step Slide the window
+                i++;
+            }
+        }
+
     }
     // Variable-Size Sliding Window
     public static int minSubarrayWithSum(int[] arr1, int X) { // {2, 3, 1, 2, 4, 3};
