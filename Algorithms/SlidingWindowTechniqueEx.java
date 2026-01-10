@@ -21,6 +21,7 @@ public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
         int[] arr1 = {2, 3, 1, 2, 4, 3};
         int X = 7;
         System.out.println("Smallest subarray length with sum ≥ " + X + ": " + minSubarrayWithSum(arr1, X)); // Output: 2
+        System.out.println("Largest subarray length with sum ≥ " + X + ": " + maxSubarrayWithSum(arr1, X)); // Output: 2
     }
     // Fixed-Size Sliding Window
     public static int maxSumKWindow(int[] arr, int k) {
@@ -111,13 +112,15 @@ public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
         }
 
     }
+
+
     // Variable-Size Sliding Window
     public static int minSubarrayWithSum(int[] arr1, int X) { // {2, 3, 1, 2, 4, 3};
         int left=0, sum = 0;
         int minLength = Integer.MAX_VALUE; // lets assume heighst values as minimum value for comparision
         for(int right=0; right<arr1.length; right++) {
             sum += arr1[right]; // Expanding the winndow everytime when sum < X
-            while(sum >= X) {
+            while(sum >= X) { // We attained the window with more >= X try shrinking
                 minLength = Math.min(minLength, right-left+1); // at 4th element 3rd index element if we want to get size right + 1, but while decresing size we need to minue left so r-l+1
                 sum -= arr1[left]; // Removing left most element from sum
                 left++; // move left pointer
@@ -143,8 +146,73 @@ public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
             ✅ Variable-Size Sliding Window: Used when window size is dynamic, e.g., smallest subarray with sum ≥ S.
             ✅ Efficiency: Both approaches run in O(N) time and are much faster than brute force O(N²).
 
-            Would you like me to provide more examples or discuss advanced variations? 🚀
 
          */
     }
+
+    public static int maxSubarrayWithSum(int[] arr, int X) {
+        /*
+        5️⃣ DRY RUN (NO SHORTCUTS)
+                left	right	window	sum	action	maxLen
+                0	0	[2]	2	valid	1
+                0	1	[2,1]	3	valid	2
+                0	2	[2,1,5]	8	❌ shrink	—
+                1	2	[1,5]	6	valid	2
+                1	3	[1,5,1]	7	valid	3
+                1	4	[1,5,1,3]	10	❌ shrink	—
+                2	4	[5,1,3]	9	❌ shrink	—
+                3	4	[1,3]	4	valid	3
+                3	5	[1,3,2]	6	valid	3
+
+                ✅ Answer = 3
+
+                6️⃣ WHY UPDATE AFTER SHRINKING?
+
+                Because:
+
+                During violation → window is invalid
+
+                Only after shrinking → window becomes valid
+
+                Then we safely calculate length
+
+                7️⃣ COMPARISON: MIN vs MAX (VERY IMPORTANT)
+                Problem	While loop	Update answer
+                Min window	while(valid)	inside loop
+                Max window	while(invalid)	after loop */
+
+                int left = 0;
+                int sum = 0;
+                int maxSubArray = 0;
+
+                for(int right=0; right < arr.length; right++) {
+                    sum += arr[right];
+
+                    while(sum > X) { // As sum excedded Than X will try to shrink it
+                        sum-= arr[left];
+                        left++;
+                    }
+                    // As we need the max window size we calcualte out-of while loop (is we need min will inside the loop ex: minSubArray)
+                    maxSubArray = Math.max(maxSubArray, right - left + 1); // This Right - Left + 1 technique is non-negotiable 
+                }
+                return maxSubArray;
+    }
 }
+            /*🎯 FIXED WINDOW RULE (WRITE THIS IN BRAIN)
+
+            Window size is constant → both pointers move together
+
+            🧠 WHEN TO USE FIXED WINDOW?
+
+            If problem says:
+
+            “subarray of size K”
+
+            “substring of length K”
+
+            “exactly K elements”
+
+            👉 Sliding Window (Fixed)
+
+
+*/
