@@ -4,7 +4,17 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
-    
+    /*
+        QUICK DECISION RULE (WRITE THIS)
+        Ask yourself:
+        ❓ Is window size FIXED?
+
+        ➡️ Yes → Fixed sliding window
+
+        ❓ Is sum / condition given?
+
+        ➡️ Yes → Variable sliding window
+     */
     public static void main(String[] args) {
         // For Fixed-Size Sliding Window
         int[] arr = {2, 1, 5, 1, 3, 2};
