@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class TwoPointerReference {
+public class TwoPointerTechnique {
 
     /*
      ---------------------------------------------------
@@ -112,6 +112,8 @@ public class TwoPointerReference {
     /*
      ---------------------------------------------------
      MAIN METHOD - FOR QUICK TESTING
+
+     (will be adding the more concize 2 point technique FAQ's.)
      ---------------------------------------------------
      */
     public static void main(String[] args) {
