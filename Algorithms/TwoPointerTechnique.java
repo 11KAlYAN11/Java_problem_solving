@@ -40,6 +40,17 @@ public class TwoPointerTechnique {
         }
 
         return false; // no pair found
+
+        /*
+        7️⃣ IMPORTANT LIMITATION ⚠️
+
+        ❌ Does NOT work for unsorted arrays
+        ✔ For unsorted arrays:
+
+        Sort first → O(n log n) + O(n)
+
+        OR use HashSet → O(n)
+         */
     }
 
 
@@ -56,6 +67,7 @@ public class TwoPointerTechnique {
      ---------------------------------------------------
      */
     public static int removeDuplicates(int[] nums) {
+        // This logic works ONLY because the array is SORTED.
 
         if (nums.length == 0) return 0;
 
@@ -70,6 +82,20 @@ public class TwoPointerTechnique {
             }
         }
 
+        // We can also just add to Set to get rid of duplicates
+        // But this was inplace removing the duplicates
+
+        /* 🔥 BIGGEST MINDSET SHIFT (THIS IS IT)
+
+        We are NOT deleting elements
+        We are OVERWRITING duplicates with unique values
+
+        Duplicates stay in array, but we ignore them.
+
+        🧠 ONE-LINE INTUITION
+
+        read finds unique values,
+        write stores them compactly at the front. */
         return write; // new length of unique elements
     }
 
