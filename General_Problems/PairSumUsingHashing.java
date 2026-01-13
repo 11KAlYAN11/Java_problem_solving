@@ -133,3 +133,9 @@ public class PairSumUsingHashing {
     }
 }
 
+// We have same sucking prblm like  **Sum pair closest to the target**
+/* Input: arr[] = [10, 30, 20, 5], target = 25
+Output: [5, 20]
+Explanation: As 5 + 20 = 25 is closest to 25.
+ */
+
