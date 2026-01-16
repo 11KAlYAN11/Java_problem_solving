@@ -134,6 +134,29 @@ public class TwoPointerTechnique {
         return maxLen;
     }
 
+    public static boolean isValidEncoding(String s1, String s2) {
+        StringBuilder sb = new StringBuilder();
+        int n = s1.length();
+        int slow = 0;
+        int fast;
+
+        while(slow < n) {
+            char ch = s1.charAt(slow); // a -> b -> c
+            fast = slow; // aaa  bb  cc   fast pointer will travel in small grps slow pointer will fiz at start of fast pointer every time
+            int count = 0;
+
+            while(fast < n && s1.charAt(fast) == ch) {
+                count++;
+                fast++;
+            }
+            sb.append(ch);
+            sb.append(count); //a3 -> b2 -> c2   sb = "a3b2c2"
+
+            slow = fast; // Will update slow to new group starting (fast stopped at new grp starting so slow = fast)
+        }
+        return s2.equals(sb.toString());
+    }
+
 
     /*
      ---------------------------------------------------
@@ -158,5 +181,11 @@ public class TwoPointerTechnique {
         // 3️⃣ Sliding Window Test
         String s = "abcabcbb";
         System.out.println(longestUniqueSubstring(s)); // 3
+
+        // Is a Valid String Encoding
+        System.out.println(isValidEncoding("aaabbcc", "a3b2c2")); // true
+        System.out.println(isValidEncoding("aaabbccaabb", "a3b2c2a2b2")); // true
+        System.out.println(isValidEncoding("aaabbcc", "a3b2c1")); // false
+        System.out.println(isValidEncoding("abc", "a1b1c1"));     // true
     }
 }
