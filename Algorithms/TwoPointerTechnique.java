@@ -157,6 +157,85 @@ public class TwoPointerTechnique {
         return s2.equals(sb.toString());
     }
 
+    // Method to count number of valid triangles
+    public static int countTriangles(int[] arr) {
+
+        int n = arr.length;
+
+        // If less than 3 elements, triangle not possible
+        if (n < 3) return 0;
+
+        // Step 1: Sort the array
+        // Sorting helps us apply two pointer logic
+        Arrays.sort(arr);
+
+        int count = 0;
+
+        /*
+         * Step 2:
+         * Fix the largest side of the triangle
+         *
+         * Why k from last?
+         * Because triangle condition depends on the LARGEST side
+         *
+         * k goes from n-1 down to 2
+         * because we need at least two elements before it
+         */
+        for (int k = n - 1; k >= 2; k--) {
+
+            /*
+             * i -> smallest side (starts from 0)
+             * j -> second largest side (just before k)
+             */
+            int i = 0;
+            int j = k - 1;
+
+            /*
+             * Now we check pairs (i, j) such that:
+             * arr[i] + arr[j] > arr[k]
+             */
+            while (i < j) {
+
+                /*
+                 * If sum of smallest + second largest
+                 * is greater than the largest side
+                 */
+                if (arr[i] + arr[j] > arr[k]) {
+
+                    /*
+                     * IMPORTANT LOGIC:
+                     *
+                     * Since array is sorted:
+                     * arr[i] <= arr[i+1] <= ... <= arr[j-1] <= arr[j]
+                     *
+                     * If arr[i] + arr[j] > arr[k]
+                     * then ALL elements from i to j-1
+                     * will also satisfy the condition
+                     *
+                     * Number of such pairs = (j - i)
+                     */
+                    count += (j - i);
+
+                    /*
+                     * Move j left to try a smaller second side
+                     */
+                    j--;
+                }
+                else {
+                    /*
+                     * If sum is NOT greater than arr[k],
+                     * it means arr[i] is too small
+                     *
+                     * So increase i to try a bigger value
+                     */
+                    i++;
+                }
+            }
+        }
+
+        return count;
+    }
+
 
     /*
      ---------------------------------------------------
@@ -187,5 +266,18 @@ public class TwoPointerTechnique {
         System.out.println(isValidEncoding("aaabbccaabb", "a3b2c2a2b2")); // true
         System.out.println(isValidEncoding("aaabbcc", "a3b2c1")); // false
         System.out.println(isValidEncoding("abc", "a1b1c1"));     // true
+
+
+        int[] arr1 = {4, 6, 3, 7};
+        System.out.println("Count: " + countTriangles(arr1));
+        // Expected output: 3
+
+        int[] arr2 = {10, 21, 22, 100, 101, 200, 300};
+        System.out.println("Count: " + countTriangles(arr2));
+        // Expected output: 6
+
+        int[] arr3 = {1, 2, 3};
+        System.out.println("Count: " + countTriangles(arr3));
+        // Expected output: 0
     }
 }
