@@ -1,5 +1,6 @@
 package Algorithms;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -32,6 +33,12 @@ public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
         int X = 7;
         System.out.println("Smallest subarray length with sum ≥ " + X + ": " + minSubarrayWithSum(arr1, X)); // Output: 2
         System.out.println("Largest subarray length with sum ≥ " + X + ": " + maxSubarrayWithSum(arr1, X)); // Output: 2
+
+        String s = "geeksforgeeks";
+        String s1 = "abcaabcbb";
+
+        System.out.println("Longest distinct subarray: "+longestUniqueSubString(s));
+        System.out.println("Longest distinct subarray: "+longestUniqueSubString(s1));
     }
     // Fixed-Size Sliding Window
     public static int maxSumKWindow(int[] arr, int k) {
@@ -206,6 +213,28 @@ public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
                     maxSubArray = Math.max(maxSubArray, right - left + 1); // This Right - Left + 1 technique is non-negotiable 
                 }
                 return maxSubArray;
+    }
+
+    public static int longestUniqueSubString(String s) {
+        // Unique = set or Hashset or hashMap
+        // Longest = slideing Win Tech (combination of 2 pointer + sliding)
+        HashSet<Character> set = new HashSet<>();
+        int slow = 0;
+        int maxLen = 0;
+        for(int fast=0; fast<s.length(); fast++) {
+
+            // First shrink the win based condition 
+            while(set.contains(s.charAt(fast))) {
+                set.remove(s.charAt(slow)); 
+                slow++; // Shrink the window
+            }
+
+            // Expand the window
+            set.add(s.charAt(fast));
+
+            maxLen = Math.max(maxLen, fast - slow + 1);
+        }
+        return maxLen;
     }
 }
             /*🎯 FIXED WINDOW RULE (WRITE THIS IN BRAIN)
