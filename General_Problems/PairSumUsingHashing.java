@@ -55,6 +55,8 @@ public class PairSumUsingHashing {
 
             // Core math logic:
             // If x + y = target, then y = target - x
+            // int[] arr = {1, 5, 7, -1, 5};
+
             int needed = target - x;
 
             // Check if required value is already seen

@@ -236,7 +236,7 @@ public class TwoPointerTechnique {
         return count;
     }
 
-    public static int trappedRainWater(int[] arr) {
+    public static int trappedRainWaterBruteForce(int[] arr) {
         int n = arr.length;
         int res = 0;
         // Will use brute force intially
@@ -264,7 +264,7 @@ public class TwoPointerTechnique {
         return res;
     }
 
-     static int maxWaterTrapping(int[] arr) {
+     static int trappingRainWaterTwoPointerGreedy(int[] arr) {
 
         // We NEVER calculate water for first and last bar
         // Because water needs walls on BOTH sides
@@ -505,15 +505,16 @@ public class TwoPointerTechnique {
         System.out.println("Count: " + countTriangles(arr3));
         // Expected output: 0
 
-        int[] arr4 = {3, 0, 1, 0, 4, 0 ,2};
-        int[] arr5 = {3, 0, 2, 0, 4};
-        System.out.println("Trapped Rain water: "+trappedRainWater(arr4));
-        System.out.println("Trapped Rain water: "+trappedRainWater(arr5));
-
         // Advanced
 
-        int[] arr = {3, 0, 2, 0, 4};
-        System.out.println(maxWaterTrapping(arr)); // Output: 7
-        
+        int[] arr4 = {3, 0, 1, 0, 4, 0 ,2};
+        int[] arr5 = {3, 0, 2, 0, 4};
+        System.out.println("Trapped Rain water: "+trappedRainWaterBruteForce(arr4));
+        System.out.println("Trapped Rain water: "+trappedRainWaterBruteForce(arr5));
+
+        System.out.println("Trapped Rain water: "+trappingRainWaterTwoPointerGreedy(arr4));
+        System.out.println("Trapped Rain water: "+trappingRainWaterTwoPointerGreedy(arr5));
+
+
     }
 }
