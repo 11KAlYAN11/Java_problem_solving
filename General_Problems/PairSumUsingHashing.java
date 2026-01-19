@@ -116,6 +116,13 @@ public class PairSumUsingHashing {
         int count = 0;
 
         for (int x : arr) {
+            /*
+                arr = [2, 7, 11, 15]
+                target = 9
+
+                x=2 → need=7 → not in set → add 2
+                x=7 → need=2 → FOUND → return true
+             */
 
             // Core math logic:
             // x + needed = target
