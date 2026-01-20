@@ -1,8 +1,23 @@
 package General_Problems;
 
-public class countTripletsProblem {
+public class CountThreeSumORcountTripletsProblem {
 
     public static int countTriplets(int[] arr, int target) {
+        /*
+            for each i (0 → n-3)
+            left = i + 1
+            right = n - 1
+
+            while left < right
+                if sum < target → left++
+                if sum > target → right--
+                else
+                    if arr[left] == arr[right]
+                        count C(n,2)
+                        break
+                    else
+                        count leftGroup × rightGroup
+ */
 
         int n = arr.length;
         int count = 0;
