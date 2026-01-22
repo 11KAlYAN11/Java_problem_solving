@@ -75,6 +75,18 @@ public class HashingPatterns1 {
     System.out.println("Unique Triplet Values: " +
             tripletValuesUnique(arr4, target4));
     // []
+
+        int[] arr11 = {0, -1, 2, -3, 1};
+        System.out.println(findTriplets(arr11));
+        // Expected: [[0, 1, 4], [2, 3, 4]]
+
+        int[] arr22 = {1, -2, 1, 0, 5};
+        System.out.println(findTriplets(arr22));
+        // Expected: [[0, 1, 2]]
+
+        int[] arr33 = {2, 3, 1, 0, 5};
+        System.out.println(findTriplets(arr33));
+        // Expected: [[]]
 }
 
     static boolean hasTwoSumSet(int[] arr, int target) {
@@ -225,5 +237,113 @@ public class HashingPatterns1 {
         }
         return new ArrayList<>(set);
     }
+
+    // =====================================================
+    // Find all triplets (i, j, k) such that:
+    // arr[i] + arr[j] + arr[k] == 0
+    // and i < j < k
+    // =====================================================
+    public static List<List<Integer>> findTriplets(int[] arr) {
+
+        int n = arr.length;
+        List<List<Integer>> res = new ArrayList<>();
+
+        // -------------------------------------------------
+        // Fix first index i
+        // We need at least 2 elements after i
+        // -------------------------------------------------
+        for (int i = 0; i < n - 2; i++) {
+
+            // -------------------------------------------------
+            // Map stores:
+            // value -> list of indices where this value appeared
+            // ONLY between i+1 and current j
+            // -------------------------------------------------
+            Map<Integer, List<Integer>> map = new HashMap<>();
+
+            // -------------------------------------------------
+            // Fix second index j
+            // j always starts AFTER i
+            // -------------------------------------------------
+            for (int j = i + 1; j < n; j++) {
+
+                // ---------------------------------------------
+                // arr[i] + arr[j] + arr[k] = 0
+                // => arr[k] = -arr[i] - arr[j]
+                // ---------------------------------------------
+                int need = -arr[i] - arr[j];
+
+                // ---------------------------------------------
+                // If required value exists in map,
+                // then ALL its stored indices are valid k
+                // ---------------------------------------------
+
+                // map.computeIfAbsent(arr[j], x -> new ArrayList<>()).add(j);
+
+                
+                if (map.containsKey(need)) {
+                    for (int k : map.get(need)) {
+                        // k < j always (because added earlier)
+                        res.add(Arrays.asList(i, k, j));
+                    }
+                }
+
+                // ---------------------------------------------
+                // Add current value arr[j] with index j
+                // ---------------------------------------------
+                map.computeIfAbsent(arr[j], x -> new ArrayList<>())
+                   .add(j);
+            }
+        }
+
+        // -------------------------------------------------
+        // As per GFG requirement:
+        // If no triplet found → return [[]]
+        // -------------------------------------------------
+        if (res.isEmpty()) {
+            res.add(new ArrayList<>());
+        }
+
+        return res;
+    }
+    /*
+    🔍 ONE SMALL DRY RUN (IMPORTANT)
+        Input
+        arr = [0, -1, 2, -3, 1]
+
+        i = 0 → value = 0
+        map = {}
+        j = 1 → arr[j] = -1
+        need = 1
+        map = { -1 → [1] }
+
+        j = 2 → arr[j] = 2
+        need = -2
+        map = { -1 → [1], 2 → [2] }
+
+        j = 4 → arr[j] = 1
+        need = -1  ✅ FOUND
+        k = 1
+        triplet = (0,1,4)
+
+
+                    HashSet<Integer> seen;
+            only tells:
+                “Value exists”
+            But problem needs:
+                “At WHICH indices did this value occur?”
+            Example:
+
+            arr = [0, -1, -1, 1]
+            Value -1 appears at indices [1, 2]
+            Both are valid k.
+            So we must store:
+
+            value → all indices
+
+            That is why:
+
+            HashMap<Integer, List<Integer>>
+     */
 
 }
