@@ -99,9 +99,6 @@ public class FourSumCount {
         return count;
     }
 
-        public static int countFourSum1(int[] arr, int target) {
-            
-        }
 
 
     public static void main(String[] args) {
