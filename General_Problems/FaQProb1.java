@@ -21,6 +21,9 @@ public class FaQProb1 {
         intersection();
         union();
         isAnagram();
+        System.out.println("is Anagagram1: "+ isAnagram1("cat", "tac"));
+        System.out.println("is Anagagram2: "+ isAnagram2("cat", "tac"));
+        System.out.println("is Anagagram2: "+ isAnagram2("pavan", "avanp"));
         firstUniqueChar();
         firstUniqueChar1();
         reverseString();
@@ -291,6 +294,36 @@ public class FaQProb1 {
 
     // 4️⃣ If map is empty → perfect anagram
     System.out.println("Is Anagram: " + counts.isEmpty());
+}
+
+public static boolean isAnagram1(String s1, String s2) {
+    int[] f1 = new int[26];
+    int[] f2 = new int[26];
+    for(char c: s1.toCharArray()) f1[c - 'a']++;
+    for(char c: s2.toCharArray()) f2[c - 'a']++;
+    return Arrays.equals(f1, f2);
+}
+
+public static boolean isAnagram2(String s1, String s2) {
+    if(s1.length() != s2.length()) return false; // basic check
+
+    String s1Hash = getHash(s1);
+    String s2Hash = getHash(s2);
+    return s1Hash.equals(s2Hash);
+}
+public static String getHash(String s) {
+    StringBuilder sb = new StringBuilder();
+    int[] freq = new int[26]; // a-z 26 as freq array limit
+
+    for(char c: s.toCharArray()) {
+        freq[c - 'a']++;
+    }
+
+    for(int i=0; i<freq.length; i++) {
+        sb.append(freq[i]);
+        sb.append("$"); // This was a delimeter to make sure no hashing Collision
+    }
+    return sb.toString();
 }
 
 public static void palindrome() {
