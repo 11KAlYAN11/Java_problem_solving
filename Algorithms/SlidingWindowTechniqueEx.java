@@ -55,7 +55,9 @@ public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
 
         // Slide the window, remove leftmost element, add new rightmost element
         for (int i = k; i < n; i++) {
-            windowSum += arr[i] - arr[i - k]; // Add new element, remove old element
+            windowSum += arr[i]; // Expand the window
+            windowSum -= arr[i-k]; // Shrink the window
+            // windowSum += arr[i] - arr[i - k]; // Add new element, remove old element
             maxSum = Math.max(maxSum, windowSum);
         }
 
@@ -109,6 +111,9 @@ public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
             Remove element when it goes out of window
 
             Peek gives first negative
+            
+            {12, -1, -7, 8, -15, 30, 16, 28}
+            o/p {-1, -1, -7, -15, -15, 0}
          */
         Queue<Integer> queue = new LinkedList<>();
         int i = 0; // to track loop from window size reached
@@ -132,15 +137,15 @@ public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
 
 
     // Variable-Size Sliding Window
-    public static int minSubarrayWithSum(int[] arr1, int X) { // {2, 3, 1, 2, 4, 3};
+    public static int minSubarrayWithSum(int[] arr1, int X) { // {2, 3, 1, 2, 4, 3}; X = 7
         int left=0, sum = 0;
-        int minLength = Integer.MAX_VALUE; // lets assume heighst values as minimum value for comparision
+        int minLength = Integer.MAX_VALUE; // lets assume heighest values as minimum value for comparision
         for(int right=0; right<arr1.length; right++) {
             sum += arr1[right]; // Expanding the winndow everytime when sum < X
             while(sum >= X) { // We attained the window with more >= X try shrinking
-                minLength = Math.min(minLength, right-left+1); // at 4th element 3rd index element if we want to get size right + 1, but while decresing size we need to minue left so r-l+1
+                minLength = Math.min(minLength, right-left+1); // at 4th element 3rd index element if we want to get size right + 1, but while decresing size we need to minus left so r-l+1
                 sum -= arr1[left]; // Removing left most element from sum
-                left++; // move left pointer
+                left++; // move left pointer shrink the window
             }
         }
         return (minLength == Integer.MAX_VALUE)? 0: minLength;
@@ -215,7 +220,8 @@ public class SlidingWindowTechniqueEx { // Idea Change IDE Checking
                 return maxSubArray;
     }
 
-    public static int longestUniqueSubString(String s) {
+    public static int longestUniqueSubString(String s) { //  String s = "geeksforgeeks"; String s1 = "abcaabcbb";
+        // Same we did in 2 pointer and here too
         // Unique = set or Hashset or hashMap
         // Longest = slideing Win Tech (combination of 2 pointer + sliding)
         HashSet<Character> set = new HashSet<>();

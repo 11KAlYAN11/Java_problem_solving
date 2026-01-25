@@ -127,7 +127,7 @@ public class TwoPointerTechnique {
                 left++;
             }
 
-            set.add(s.charAt(right));
+            set.add(s.charAt(right)); // Expand the window
             maxLen = Math.max(maxLen, right - left + 1);
         }
 
@@ -135,6 +135,8 @@ public class TwoPointerTechnique {
     }
 
     public static boolean isValidEncoding(String s1, String s2) {
+        // s1 = aaabbcc, s2 = a3b2c2
+        // Here for simplicity will constart the encoding string from s1 and compare it with s2 finally
         StringBuilder sb = new StringBuilder();
         int n = s1.length();
         int slow = 0;
@@ -142,7 +144,7 @@ public class TwoPointerTechnique {
 
         while(slow < n) {
             char ch = s1.charAt(slow); // a -> b -> c
-            fast = slow; // aaa  bb  cc   fast pointer will travel in small grps slow pointer will fiz at start of fast pointer every time
+            fast = slow; // aaa  bb  cc   fast pointer will travel in small grps slow pointer will fix at start of fast pointer every time
             int count = 0;
 
             while(fast < n && s1.charAt(fast) == ch) {
@@ -259,7 +261,7 @@ public class TwoPointerTechnique {
             }
 
             // Now from both boundaries will take min of them (cuz water will flow from low height)
-            res += Math.min(left, right) - arr[i]; // at 3 & 6 boundries but filled water a index 2 is 3-2 = 1 // so we hav eto minus the current index height
+            res += Math.min(left, right) - arr[i]; // at 3 & 6 boundries but filled water a index 2 is 3-2 = 1 // so we have to minus the current index from height
         }
         return res;
     }
