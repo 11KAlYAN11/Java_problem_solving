@@ -173,6 +173,17 @@ public class HashingPatterns1 {
         Arrays.sort(arr);
 
         int left = 0, right = arr.length - 1;
+        /*
+        4️⃣ Key Insight (VERY IMPORTANT)
+
+    Two-sum requires bidirectional adjustment, not forward scanning.
+
+    Pattern	Movement
+    Two-sum	left ↔ right
+    Cycle detect	slow → fast
+    Duplicate removal	slow → fast
+    Sliding window	left → right
+         */
 
         while (left < right) {
             int sum = arr[left] + arr[right];
@@ -245,105 +256,185 @@ public class HashingPatterns1 {
     // =====================================================
     public static List<List<Integer>> findTriplets(int[] arr) {
 
-        int n = arr.length;
-        List<List<Integer>> res = new ArrayList<>();
+    int n = arr.length;
+    List<List<Integer>> res = new ArrayList<>();
 
-        // -------------------------------------------------
-        // Fix first index i
-        // We need at least 2 elements after i
-        // -------------------------------------------------
-        for (int i = 0; i < n - 2; i++) {
+    // Fix first index i
+    for (int i = 0; i < n - 2; i++) {
 
-            // -------------------------------------------------
-            // Map stores:
-            // value -> list of indices where this value appeared
-            // ONLY between i+1 and current j
-            // -------------------------------------------------
-            Map<Integer, List<Integer>> map = new HashMap<>();
+        // Map: value -> list of indices (k)
+        // Valid only for indices between (i+1) and (j-1)
+        Map<Integer, List<Integer>> map = new HashMap<>();
 
-            // -------------------------------------------------
-            // Fix second index j
-            // j always starts AFTER i
-            // -------------------------------------------------
-            for (int j = i + 1; j < n; j++) {
+        // Fix second index j
+        for (int j = i + 1; j < n; j++) {
 
-                // ---------------------------------------------
-                // arr[i] + arr[j] + arr[k] = 0
-                // => arr[k] = -arr[i] - arr[j]
-                // ---------------------------------------------
-                int need = -arr[i] - arr[j];
+            // arr[i] + arr[j] + arr[k] = 0
+            // => arr[k] = -arr[i] - arr[j]
+            int need = -arr[i] - arr[j];
 
-                // ---------------------------------------------
-                // If required value exists in map,
-                // then ALL its stored indices are valid k
-                // ---------------------------------------------
-
-                // map.computeIfAbsent(arr[j], x -> new ArrayList<>()).add(j);
-
-                
-                if (map.containsKey(need)) {
-                    for (int k : map.get(need)) {
-                        // k < j always (because added earlier)
-                        res.add(Arrays.asList(i, k, j));
-                    }
+            // If required value exists, all its indices form triplets
+            if (map.containsKey(need)) {
+                for (int k : map.get(need)) {
+                    // k < j always (added earlier)
+                    res.add(Arrays.asList(i, k, j));
                 }
-
-                // ---------------------------------------------
-                // Add current value arr[j] with index j
-                // ---------------------------------------------
-                map.computeIfAbsent(arr[j], x -> new ArrayList<>())
-                   .add(j);
             }
-        }
 
-        // -------------------------------------------------
-        // As per GFG requirement:
-        // If no triplet found → return [[]]
-        // -------------------------------------------------
-        if (res.isEmpty()) {
-            res.add(new ArrayList<>());
-        }
+            // -------- NORMAL HashMap INSERT (instead of computeIfAbsent) --------
+            if (!map.containsKey(arr[j])) {
+                map.put(arr[j], new ArrayList<>());
+            }
+            map.get(arr[j]).add(j);
 
-        return res;
+            // map.computeIfAbsent(arr[j], x -> new ArrayList<>()).add(j);
+            /* 2️⃣ Break it into English
+
+            “If key arr[j] is NOT present in the map,
+            then create a new ArrayList, put it into the map,
+            and return that list.
+
+            If key IS present, just return the existing list.”
+
+            After returning the list → .add(j) is called on it.
+             */
+        }
     }
-    /*
-    🔍 ONE SMALL DRY RUN (IMPORTANT)
-        Input
-        arr = [0, -1, 2, -3, 1]
 
-        i = 0 → value = 0
-        map = {}
-        j = 1 → arr[j] = -1
-        need = 1
-        map = { -1 → [1] }
+    // GFG requirement
+    if (res.isEmpty()) {
+        res.add(new ArrayList<>());
+    }
 
-        j = 2 → arr[j] = 2
-        need = -2
-        map = { -1 → [1], 2 → [2] }
+    return res;
+}
 
-        j = 4 → arr[j] = 1
-        need = -1  ✅ FOUND
-        k = 1
-        triplet = (0,1,4)
+    /*      2️⃣ COMPLETE DRY RUN (IMPORTANT 🔥)
+
+            Input
+            arr = [0, -1, 2, -3, 1]
+            index   0   1   2   3   4
+
+            i = 0 → arr[i] = 0
+            map = {}
+
+            j = 1 → arr[j] = -1
+            need = -arr[i] - arr[j]
+                = -0 - (-1)
+                = 1
+
+            map does NOT contain 1 → no triplet
+
+            Insert arr[j] into map:
+            map = { -1 -> [1] }
+
+            j = 2 → arr[j] = 2
+            need = -0 - 2
+                = -2
+
+            map does NOT contain -2 → no triplet
+
+            Insert arr[j]:
+            map = {
+            -1 -> [1],
+            2 -> [2]
+            }
+
+            j = 3 → arr[j] = -3
+            need = -0 - (-3)
+                = 3
+
+            map does NOT contain 3 → no triplet
+
+            Insert arr[j]:
+            map = {
+            -1 -> [1],
+            2 -> [2],
+            -3 -> [3]
+            }
+
+            j = 4 → arr[j] = 1
+            need = -0 - 1
+                = -1
+
+            map CONTAINS -1 → indices = [1]
+
+            Triplet found:
+            i = 0, k = 1, j = 4
+            => values: (0, -1, 1)
+            => indices: [0, 1, 4]
+
+            res = [[0, 1, 4]]
+
+            Insert arr[j]:
+            map = {
+            -1 -> [1],
+            2 -> [2],
+            -3 -> [3],
+            1 -> [4]
+            }
+
+            End of i = 0 loop ✔
+            i = 1 → arr[i] = -1
+            map = {}
+
+            j = 2 → arr[j] = 2
+            need = -(-1) - 2
+                = 1 - 2
+                = -1
+
+            map does NOT contain -1
+
+            Insert:
+            map = { 2 -> [2] }
+
+            j = 3 → arr[j] = -3
+            need = -(-1) - (-3)
+                = 1 + 3
+                = 4
+
+            map does NOT contain 4
+
+            Insert:
+            map = {
+            2  -> [2],
+            -3  -> [3]
+            }
+
+            j = 4 → arr[j] = 1
+            need = -(-1) - 1
+                = 1 - 1
+                = 0
+
+            map does NOT contain 0
+
+            Insert:
+            map = {
+            2 -> [2],
+            -3 -> [3],
+            1 -> [4]
+            }
+
+            End of i = 1 loop ✔
+            i = 2 → arr[i] = 2
+
+            Remaining elements < 2 → loop ends
+
+            3️⃣ FINAL RESULT
+            res = [[0, 1, 4]]
 
 
-                    HashSet<Integer> seen;
-            only tells:
-                “Value exists”
-            But problem needs:
-                “At WHICH indices did this value occur?”
-            Example:
+            Which corresponds to:
 
-            arr = [0, -1, -1, 1]
-            Value -1 appears at indices [1, 2]
-            Both are valid k.
-            So we must store:
+            arr[0] + arr[1] + arr[4]
+            0 + (-1) + 1 = 0 ✅
 
-            value → all indices
+            4️⃣ One GOLDEN TAKEAWAY 🧠
+            For each fixed i:
+                j moves forward
+                map contains elements BEFORE j
+                need looks BACK into map
 
-            That is why:
-
-            HashMap<Integer, List<Integer>>
+            That’s why this works in O(n²) instead of O(n³).
      */
-
 }
