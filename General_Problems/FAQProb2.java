@@ -106,7 +106,7 @@ public class FAQProb2 {
     static void printWoUsingNumbers() {
         int one = 'A'/'A'; // we can take any one ex: 'c'/'c' etc.
         int hundread = 'd'; // d ASCII-> 100
-        for(int i=one; i<=hundread; i++) {
+        for(int i=one; i<=hundread; i++) { // for(int i = 'a'/'a'; i<'d'; i++) sout(i)
             System.out.print(i+" ");
         }
     }

@@ -385,7 +385,7 @@ public static void reverseString() {
 }
 public static void primeOrNot() {
     int num = 99;
-    for(int i=2; i*i<num; i++) { // i<19/2  -> (num / 2) -> sqrt(num) = i*i as maths priciple sqrt goes tat side it will become that i*i
+    for(int i=2; i*i<=num; i++) { // i<19/2  -> (num / 2) -> sqrt(num) = i*i as maths priciple sqrt goes tat side it will become that i*i
         if(num %i == 0) {
             System.out.println("Not Prime! ");
             return;

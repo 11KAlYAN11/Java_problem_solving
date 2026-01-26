@@ -74,15 +74,7 @@ public class Demo1 {
         }
         System.out.println();
         return sum;
-    }
-    /*
-    🎯 INTERVIEW GOLD ANSWER
-
-    “I prefer iterative Fibonacci over recursion to avoid exponential time and stack overflow.”
-
-    🔥 This line alone impresses interviewers.
-     */
-    
+    } 
 
     static Long isPowerOfAnother(Long X, Long Y){
         System.out.println(" Is Y power of X: ");
@@ -149,7 +141,7 @@ public class Demo1 {
         // Brute Force logic
         int pow = 1;
         while(pow < Y) {
-            pow *= X; // 2*1 = 2, 2*2 = 4, 4*2 = 8, 8*2 = 16, 16*2 = 32, 32*2 = 64, 64*2 = 128 ..
+            pow *= X; // 1*2 = 2, 2*2 = 4, 4*2 = 8, 8*2 = 16, 16*2 = 32, 32*2 = 64, 64*2 = 128 ..
         }
         return (pow == Y)? 1L : 0L;
     }
@@ -168,9 +160,15 @@ public class Demo1 {
         int start = 1, end = 100;
         for(int i = start; i <= end; i++) {
             // This is for corner and optimizations
-            if(i<= 2 || i%2 == 0) continue; // If <=2 or Even skip the loop
+            // if(i<= 2 || i%2 == 0) continue; // If <=2 or Even skip the loop
+            if (i < 2) continue;
+            if (i == 2) {
+                System.out.println(2);
+                continue;
+            }
+            if (i % 2 == 0) continue;
             boolean isPrimee = true;  // outer is just for range
-            for(int j = 2; j*j < i; j++) { // i/2 -> i*i  means: sqrt(i)
+            for(int j = 2; j*j <= i; j++) { // i/2 -> i*i  means: sqrt(i)
                 if(i%j == 0) { 
                     isPrimee = false;
                     break;
@@ -185,7 +183,7 @@ public class Demo1 {
         int start = 1, end = 100;
         while(start <= end) {
             boolean isPrimee = true;
-            for(int i=2; i*i<start; i++) {
+            for(int i=2; i*i<=start; i++) {
                 if(start%i  == 0) {
                     isPrimee = false;
                     break;

@@ -31,6 +31,19 @@ public class GroupAnagrams { // GroupAnagrams
             map1.get(hash).add(s);
         }
         return new ArrayList<>(map1.values());
+        /* Side-by-side mental model 🧠
+            Problem type	    Map value	    Pattern
+            Count things	    Integer	        getOrDefault + 1
+            Store indices	    List<Integer>	putIfAbsent + add
+            Group strings	    List<String>	computeIfAbsent + add
+            Prefix sum freq	    Integer	        getOrDefault + 1
+            Prefix sum index	Integer	        putIfAbsent
+
+            One-liner rule to remember forever 🔥
+            Map value decides the pattern.
+            Numbers → getOrDefault + math
+            Collections → putIfAbsent / computeIfAbsent + add
+         */
     }
     
     // helper method
