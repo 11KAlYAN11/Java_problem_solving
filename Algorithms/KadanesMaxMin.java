@@ -1,6 +1,6 @@
 package Algorithms;
 
-class MaxSubarrayKadanes {
+public class KadanesMaxMin {
     /*
                 =========================================================
                         KADANE FAMILY – CORE FORMULAS (JAVA NOTES)
@@ -102,7 +102,7 @@ class MaxSubarrayKadanes {
                 Circular Kadane → MAX + MIN + TOTAL matter
                 =========================================================
 
-                
+
     🧠 SIDE-BY-SIDE COMPARISON
         Requirement	Kadane	Prefix+Map
         Max subarray sum	✅	❌
