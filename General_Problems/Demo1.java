@@ -20,6 +20,18 @@ public class Demo1 {
         System.out.println(factorial1(5));
         rangeOfPrimes();
         rangeOfPrimes1();
+
+
+        int[] arri = {1, 2, 3, 4, 5};
+        int[] arrii = {1, 2, 3, 4, 5};
+        int[] arriii = {1, 2, 3, 4, 5};
+
+        int k = 2;
+        rotateArray(arri, k);
+        rotateArray1(arrii, k);
+
+        rotateArrayReverseAlgo(arriii, k);
+
     }
     static int factorial(int n) {
         if(n==1) {
@@ -261,5 +273,143 @@ public class Demo1 {
             sum += digit;
         }
         return sum;
+    }
+
+    static void rotateArray(int[] arr, int k) {
+        // for safe side if k > n do 
+        int n = arr.length;
+        k = k%n;
+        // Will take one temp[] array and copy the starting ele to temp array
+        int[] temp = new int[k];
+
+        for(int i=0; i<k; i++) {
+            temp[i] = arr[i];
+        }
+
+        int index = 0;
+        for(int i=k; i<n; i++) {
+            arr[index] = arr[i]; // 
+            index++;
+        }
+        for(int i=0; i<k; i++) {
+            arr[index] = temp[i];
+            index++;
+        }
+        System.out.println();
+        for(int i: arr) System.out.print(" "+i);
+        System.out.println();
+
+        /*🧪 Quick Dry Run
+            arr = [1,2,3,4,5]
+            k = 2
+
+            temp = [1,2]
+
+            Shift:
+            [3,4,5,?,?]
+
+            Append temp:
+            [3,4,5,1,2]
+         */
+
+    }
+
+    static void rotateArray1(int[] arr, int k) {
+        /*
+        🧪 Dry Run
+        arr = [1,2,3,4,5]
+        n = 5, k = 2
+
+        Formula:
+        newIndex = (i + n - k) % n
+
+        i	arr[i]	newIndex	temp
+        0	1	    (0+5-2)%5=3	[,,,1,]
+        1	2	    (1+5-2)%5=4	[,,_,1,2]
+        2	3	    (2+5-2)%5=0	[3,,,1,2]
+        3	4	    (3+5-2)%5=1	[3,4,_,1,2]
+        4	5	    (4+5-2)%5=2	[3,4,5,1,2]
+         */
+        int n = arr.length;
+        k = k%n; // If k > n
+
+        int[] temp = new int[n];
+
+        // Place elements into new positions
+        for(int i=0; i<n; i++) {
+            temp[(i+n-k)%n] = arr[i];
+        }
+
+        // if possible rtn temp arr it was done, if unable to return copy temp to arr
+        for(int i=0; i<n; i++) {
+            arr[i] = temp[i]; 
+        }
+        System.out.println();
+        for(int i: arr) System.out.print(" "+i);
+        System.out.println();
+
+    }
+    static void rotateArrayReverseAlgo(int[] arr, int k) {
+        int n = arr.length;
+
+        k = k%n; // If k > n (safe check)
+
+        reverse(arr, 0, k-1); // Reverse the first elements till k
+
+        reverse(arr, k, n-1); // Reverse the elements from k to n
+
+        reverse(arr, 0, n-1); // Reverse the whole array
+        
+        System.out.println();
+        for(int i: arr) System.out.print(" "+i);
+        System.out.println();
+
+        /*
+            Reversal Algorithm – LEFT ROTATION by k
+
+            Goal:
+                Convert: [ A | B ]  -->  [ B | A ]
+
+            Where:
+                A = first k elements
+                B = remaining (n-k) elements
+
+            Example:
+                arr = [1, 2 | 3, 4, 5], k = 2
+
+            STEP 1: Reverse first k elements (Reverse A)
+                [1, 2 | 3, 4, 5]
+                    ↓
+                [2, 1 | 3, 4, 5]
+
+            STEP 2: Reverse remaining n-k elements (Reverse B)
+                [2, 1 | 3, 4, 5]
+                    ↓
+                [2, 1 | 5, 4, 3]
+
+            Now array becomes:
+                Reverse(A) + Reverse(B)
+
+            STEP 3: Reverse entire array
+                [2, 1 | 5, 4, 3]
+                    ↓
+                [3, 4, 5 | 1, 2]
+
+            Final Result:
+                LEFT ROTATED ARRAY by k positions
+
+            Key Insight:
+                Reverse(A + B) = Reverse(B) + Reverse(A)
+                So reversing parts first and whole at last gives B + A
+*/
+    }
+    static void reverse(int[] arr, int start, int end) {
+        while(start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
     }
 }
