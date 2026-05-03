@@ -19,8 +19,6 @@ import java.util.Set;
    7. HashSet behavior
    8. Reference vs Logical equality
 
- 👨‍💻 Suitable for:
-   0–3 Years Java Experience
  =========================================================
 */
 
