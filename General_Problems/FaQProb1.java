@@ -302,6 +302,8 @@ public static boolean isAnagram1(String s1, String s2) {
     for(char c: s1.toCharArray()) f1[c - 'a']++;
     for(char c: s2.toCharArray()) f2[c - 'a']++;
     return Arrays.equals(f1, f2);
+
+    // Note See Last for Detailed Explanation!
 }
 
 public static boolean isAnagram2(String s1, String s2) {
