@@ -1,8 +1,7 @@
-package General_Problems;
+package Collections;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -38,40 +37,23 @@ public class Main {
         );
 
         // 1. Remove duplicates based on id
+        System.out.println("Unique Emps: ");
+        // Areyy simple List to set will come unique missed
+        Set<Employee> uniqueEmps = new HashSet<>(employees);
 
-        List<Employee> uniqueEmployees = new ArrayList<>();
-
-        Set<Integer> ids = new HashSet<>();
-
-        for(Employee e : employees) {
-
-            if(!ids.contains(e.id)) {
-
-                ids.add(e.id);
-
-                uniqueEmployees.add(e);
-            }
+        for(Employee e: uniqueEmps) {
+            uniqueEmps.add(e);
         }
 
-        System.out.println("Unique Employees:");
-        for(Employee e : uniqueEmployees) {
-
-            System.out.println(e);
-        }
+        for(Employee e: uniqueEmps) System.out.println(e);
 
         // 2. Sort by salary
 
-        List<Employee> sortedEmployees = new ArrayList<>(employees);
+        List<Employee> sortedEmployees = new ArrayList<>(uniqueEmps);
 
-        Collections.sort(sortedEmployees, new Comparator<Employee>() {
-
-            @Override
-            public int compare(Employee e1, Employee e2) {
-
-                return Double.compare(e1.salary, e2.salary);
-            }
-        });
-
+        sortedEmployees.sort(
+            Comparator<T>.comparingDouble(Employee::getSalary)
+        );
         /*
           List<Employee> sortedEmployees =
                 employees.stream()

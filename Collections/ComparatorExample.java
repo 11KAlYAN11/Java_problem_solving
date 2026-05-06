@@ -5,7 +5,8 @@ import java.util.TreeSet;
 /*
  * Comparator<Employee3>:
  *
- * The Comparator interface is part of Java's java.util package and is used to define a custom comparison logic for objects. By implementing Comparator, we are providing a way to compare two Employee3 objects based on some criteria.
+ * The Comparator interface is part of Java's java.util package and is used to define a custom comparison logic for objects. 
+ * By implementing Comparator, we are providing a way to compare two Employee3 objects based on some criteria.
  */
 class Employee3 implements Comparable<Employee3> {
     int id;
@@ -28,14 +29,14 @@ class Employee3 implements Comparable<Employee3> {
 }
 /*
  * Difference Between Comparable and Comparator
-        Comparable:
 
+        Comparable:
         Used when you want to define the natural ordering of objects in your class.
         It is implemented directly inside the class.
         There is only one comparison logic (i.e., compareTo() method).
         The class itself defines how objects should be compared.
-        Comparator:
 
+        Comparator:
         Used when you want to define custom ordering (other than the natural ordering).
         It is usually implemented externally, in a separate class.
         You can have multiple comparators to compare by different fields (e.g., name, salary, etc.).
