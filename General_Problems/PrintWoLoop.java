@@ -7,7 +7,7 @@ public class PrintWoLoop {
     static void print(int i) {
         if(i>100) return;
         System.out.print(i+" ");
-        print(i+1);
+        print(i+1); // recurssion
     }
     public static void main(String[] args) {
         print(1);

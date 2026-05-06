@@ -24,6 +24,9 @@ public class FAQProb2 {
         System.out.print("Hello");
         System.out.printf("Hello");
         System.out.append("Hello Man! ");
+
+        System.out.printf("\nHello");
+        System.out.format("\nHello");
          */
 
     }
@@ -39,13 +42,25 @@ public class FAQProb2 {
             freqMap.put(ele, freqMap.getOrDefault(ele, 0) + 1);
         }
 
-        // if(res.size() == 0 || res,.size() == 1) return res; // we can use like this for optimization
+        // if(res.size() == 0 || res.size() == 1) return res; // we can use like this for optimization
 
         for(Map.Entry<Integer, Integer> e: freqMap.entrySet()) {
             if(e.getValue() > arr.length / n) {
                 res.add(e.getKey());
             }
         }
+
+        /*
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for(int num : arr) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+
+            if(map.get(num) > arr.length / 2) {
+                return num;
+            }
+        }
+         */
 
         // To make the res in sorted
         Collections.sort(res);
