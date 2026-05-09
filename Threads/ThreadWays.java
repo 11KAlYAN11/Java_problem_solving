@@ -59,6 +59,18 @@ public class ThreadWays {
 
         t3.start();
 
+        // Creating a runnable via lambda expression
+        Runnable taskr = () -> {
+            System.out.println(Thread.currentThread().getName());
+        };
+        Thread tr = new Thread(taskr);
+        tr.start();
+
+        // Even shorter version
+        new Thread(() -> {
+            System.out.println("Thread using Lambda");
+        }).start();
+
 
         // =====================================================
         // MAIN THREAD
