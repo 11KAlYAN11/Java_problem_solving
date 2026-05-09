@@ -2,7 +2,7 @@ package Threads;
 
 import java.util.concurrent.*;;
 
-public class A {
+public class BlockingQueueExample { // BlockingQueueExample
     public static void main(String[] args) {
         BlockingQueue<Integer> queue = new ArrayBlockingQueue<>(3);
         // producer
