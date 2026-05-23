@@ -51,5 +51,36 @@ public class Demo {
         System.out.println(validParenthisis(str));
         int[] numbers = {1,2,3,4,5};
         plusOne(numbers);
+
+        Number n1 = 10;
+        Number n2 = 10.0f;
+        Number n3 = 10.0;
+
+        /*IMPORTANT CONCEPT:
+        ------------------
+        Integer, Double, Float, Long etc
+        all extends Number class.
+
+        Hierarchy:
+
+                Object
+                ↑
+                Number
+            ┌────┼────┐
+        Integer Double Float
+
+        So:
+
+            Number n = new Integer(10);
+
+        is VALID because:
+            Integer IS-A Number
+
+         */
+
+        System.out.println(n1);
+        System.out.println(n2);
+        System.out.println(n3);
+
     }
 }
