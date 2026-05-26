@@ -72,6 +72,20 @@ public class HashingPatterns {
         System.out.println();
     }
 
+    static void printDuplicates1(int[] arr) {
+        HashSet<Integer> set = new HashSet<>();
+        for(int e: arr) {
+            /* if(set.add(e)) {
+                // no duplicates
+            } else {
+                System.out.println(e+" dup");
+            } */
+
+            if(set.contains(e)) System.out.println(e+" dup");
+            else set.add(e);
+        }
+    }
+
     /* =========================================================
        3️⃣ FIRST REPEATING ELEMENT (ORDER PRESERVED)
        👉 LinkedHashMap keeps insertion order
@@ -185,6 +199,7 @@ public class HashingPatterns {
 
         countFrequency(arr);
         printDuplicates(arr);
+        printDuplicates1(arr);
         firstRepeatingElement(arr);
 
         int[] sumArr = {1, 4, 20, 3, 10, 5};
