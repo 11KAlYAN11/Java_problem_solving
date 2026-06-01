@@ -131,7 +131,38 @@ public class HashingPatterns1 {
 
         for (int x : arr) {
             int need = target - x;
+            /*🌳 Logic
 
+                Suppose:
+
+                x + y = target
+
+                If current:
+
+                x
+
+                known,
+
+                then:
+
+                y = target - x
+
+                Basic algebra.
+             */
+
+                /*
+                🔥 GOLDEN RULE
+
+                    In hashmap problems:
+
+                    If checking:
+
+                    past data
+
+                    usually:
+
+                    ✅ query first
+                    ✅ insert later */
             count += map.getOrDefault(need, 0);
 
             map.put(x, map.getOrDefault(x, 0) + 1);
@@ -233,7 +264,7 @@ public class HashingPatterns1 {
 
             for(int j=i+1; j<n; j++) {
                 // a+b+c = target
-                // c = target -a -b; as maths 
+                // c = target -a -b; as maths basic algebra
                 int need = tar - arr[i] - arr[j];
                 if(seen.contains(need)) {
                     // found such pair, so as this as sorted list to set

@@ -133,6 +133,39 @@ public class HashingPatterns {
         return false;
     }
 
+    static boolean subarraySumEqualsK11(int[] arr, int k) {
+        // will do this in prefixSum way
+        HashSet<Integer> set = new HashSet<>(); // Do we actually need HashMap noph we're just checking existance so not needed
+        int prefixSum = 0;
+
+        for(int i=0; i<arr.length; i++) {
+            prefixSum += arr[i]; 
+
+            // case 1: directly that prefixSum == k
+            if(prefixSum == k) return true;
+
+            // case 2: Does prefixSum - k contains in the set 
+            if(set.contains(prefixSum - k)) return true; // via this a+b = res -> b = res -a 
+
+            set.add(prefixSum);
+        }
+        return false;
+    }
+
+    // Same above in BruteForce way 0(n)^2
+    static boolean subarraySumEqualsK1(int[] arr, int k) {
+        // will do this in a brute force way like 1, 1,2  1,2,3   2,  2,3    3
+        
+        for(int i=0; i<arr.length; i++) {
+            int sum = 0;
+            for(int j=i; j<arr.length; j++) {
+                sum += arr[j]; // 1, 1,2   1,2,3        2,  2,3     3
+                if(sum == k) return true;
+            }
+        }
+        return false;
+    }
+
     /* =========================================================
        5️⃣ COUNT DISTINCT ELEMENTS IN EVERY WINDOW (SLIDING WINDOW)
        ========================================================= */
@@ -162,6 +195,31 @@ public class HashingPatterns {
             }
         }
         return result;
+    }
+    // countOfUniqueElementsInEachWindow
+    static ArrayList<Integer> countDistinctInWindow1(int[] arr, int k) {
+        ArrayList<Integer> res = new ArrayList<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
+        // we need to track the window with 2 pointses remmber WST is a special 2 pointer techinque with start, stop or slow fast & window maybe size fixed or varible
+        int slow = 0;
+        for(int fast = 0; fast < arr.length; fast++) {
+            map.put(arr[fast], map.getOrDefault(arr[fast], 0) + 1); // Expanding 
+
+            // If window size reached 
+            if(fast - slow + 1 == k) { // The window size is fixed so no need while to shrink
+                res.add(map.size());
+
+                // We have to remove the outgoing element // shrinking
+                map.put(arr[slow], map.get(arr[slow]) -1 );
+                // now we have to remove if value becomes zero
+                if(map.get(arr[slow]) == 0) map.remove(arr[slow]);
+
+                // Note we ahve to expand the idx or slow pointer inside the window only note
+                slow++; // expand the slow pointer internally to make the window valid every time
+
+            }
+        }
+        return res;
     }
 
     /* =========================================================
@@ -207,9 +265,18 @@ public class HashingPatterns {
                 + subarraySumEqualsK(sumArr, 33));
         System.out.println();
 
+         System.out.println("Subarray sum = 33 exists? "
+                + subarraySumEqualsK1(sumArr, 33));
+        System.out.println();
+
+        System.out.println("Subarray sum = 33 exists? "
+                + subarraySumEqualsK11(sumArr, 33));
+        System.out.println();
+
         int[] windowArr = {1, 2, 1, 3, 4, 2, 3};
         System.out.println("Distinct in windows of size 4:");
         System.out.println(countDistinctInWindow(windowArr, 4));
+        System.out.println(countDistinctInWindow1(windowArr, 4));
         System.out.println();
 
         String s = "geeksforgeeks";
