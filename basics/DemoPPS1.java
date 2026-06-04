@@ -2,6 +2,7 @@ package basics;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -195,6 +196,8 @@ public class DemoPPS1 {
          * Expected:
          * [[-6,6],[-1,1]]
          */
+
+        System.out.println(firstRepeated(arr3));
     }
 
     /*
@@ -276,5 +279,22 @@ public class DemoPPS1 {
                 (a, b) -> a.get(0) - b.get(0));
 
         return result;
+    }
+
+    public int firstNonRepeating(int[] arr) {
+        // code here
+        HashMap<Integer, Integer> map = new HashMap<>(); // As we need first non repeating so gng with LinkedHashMap but if we go iterating via arr we can with hash map also
+        
+        for(int i: arr) {
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+        
+        for(int i: arr) {
+            if(map.get(i) == 1) { // If only one time repeated that was that non repeating character
+                return i;
+            }
+        }
+        return 0;
+
     }
 }
