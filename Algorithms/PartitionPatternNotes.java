@@ -195,6 +195,8 @@ public class PartitionPatternNotes {
      * Correct Right = Negative
      *
      * Order NOT preserved
+     * 
+     * {1, -2, 3, -4, 5, -6};
      */
 
     public static void moveNegativesEnd(int[] arr) {
@@ -233,7 +235,8 @@ public class PartitionPatternNotes {
      * Order NOT preserved
      */
 
-    public static void moveZerosEnd(int[] arr) {
+    // {1, 0, 3, 0, 5};
+    public static void moveZerosEnd(int[] arr) { 
 
         int left = 0;
         int right = arr.length - 1;
@@ -269,6 +272,7 @@ public class PartitionPatternNotes {
      * Order NOT preserved
      */
 
+    //  {1, 2, 3, 4, 5, 6};
     public static void segregateEvenOdd(int[] arr) {
 
         int left = 0;

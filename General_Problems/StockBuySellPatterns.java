@@ -41,6 +41,20 @@ public class StockBuySellPatterns {
         }
 
         System.out.println("Single Transaction Max Profit = " + maxProfit);
+
+        /*// Now How about ShortSelling If short selling allowed
+        int highestPrice = prices[0];
+        int shortMaxProfit = 0;
+        for(int i=1; i<prices.length; i++) {
+            if(prices[i] > highestPrice) { highestPrice = prices[i];
+                shortMaxProfit = Math.max(shortMaxProfit, mPIST);
+            }
+            else {
+                int mPIST = highestPrice - prices[i];
+                shortMaxProfit = Math.max(shortMaxProfit, mPIST);
+            }
+        }
+         */
     }
 
     /*
