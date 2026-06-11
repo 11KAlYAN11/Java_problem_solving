@@ -1,70 +1,52 @@
 package General_Problems;
 
-import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.HashSet;
 
-import General_Problems.Employee3.NameComparator;
-
-class Employee3 implements Comparable<Employee3> {
-    int id;
-    String name;
-    double salary;
-
-    public Employee3(int id, String name, double salary) {
-        this.id = id;
-        this.name = name;
-        this.salary = salary;
-    }
-
-    @Override
-    public int compareTo(Employee3 other) {
-        // compare by salary first
-        int salaryComparison = Double.compare(this.salary, other.salary);
-        if(salaryComparison != 0) return salaryComparison; // so salaries was not equal
-
-        // compare by ID if salary is same
-        return Integer.compare(this.id, other.id);
-    }
-
-    @Override
-    public String toString() {
-        return "Employee {id = "+ id + ", Name = "+ name +", salary = "+salary+" } ";
-    }
-
-    static class NameComparator implements Comparator<Employee3> {
-        @Override
-        public int compare(Employee3 e1, Employee3 e2) {
-            return e1.name.compareTo(e2.name);
-        }
-    }
-}
 public class A {
+
     public static void main(String[] args) {
-        Set<Employee3> emps = new TreeSet<>();
+        int[] arr = {111, 222, 333, 444};
+        System.out.println(isPalinArray(arr));
 
-        // As treeset used to be sorted 1 with salary 2nd with id if salaries matched
-        emps.add(new Employee3(1, "A1", 300));
-        emps.add(new Employee3(2, "A2", 200));
-        emps.add(new Employee3(3, "A3", 200));
-        emps.add(new Employee3(4, "A4", 400));
+        LongestUniqueString();
+    }
 
-        System.out.println("Employees Sorted by salary: ");
-        for(Employee3 emp: emps) {
-            System.out.println(emp);
+    public static boolean isPalinArray(int[] arr) {
+        // code here.
+        boolean isPalin = false;
+        for(int i: arr) {
+            isPalin = palindrome(i);
+            if(!isPalin) return false;
         }
-
-        Set<Employee3> employee3s = new TreeSet<>(new NameComparator());
-
-        employee3s.add(new Employee3(1, "asam", 300));
-        employee3s.add(new Employee3(2, "pavan", 200));
-        employee3s.add(new Employee3(3, "kalayn", 200));
-        employee3s.add(new Employee3(4, "reddy", 400));
-
+        return true;
+    }
+    
+    public static boolean palindrome(int n) {
+        int n1 = n;
+        int prdt = 0;
         
-        System.out.println("Employees Sorted by Name1: ");
-        for(Employee3 e: employee3s) {
-            System.out.println(e);
+        while(n1 > 0) {
+            int dig = n1 % 10;
+            prdt = prdt * 10 + dig;
+            n1 /= 10;
         }
+        if(prdt == n) return true;
+        return false;
+    }
+
+    public static void LongestUniqueString() {
+        String s = "geeksforgeeks";
+        int maxLen = 0;
+
+        HashSet<Character> set = new HashSet<>();
+        for(char c: s.toCharArray()) {
+            while(set.contains(c)) {
+                maxLen = Math.max(maxLen, set.size());
+                set.remove(c);
+            }
+            set.add(c);
+        }
+
+        System.out.println(maxLen);
     }
 }
