@@ -9,6 +9,9 @@ public class A {
         System.out.println(isPalinArray(arr));
 
         LongestUniqueString();
+        String[] arrStr = {"geeksforgeeks", "geeks", "geek", "geezer"};
+
+        System.out.println(longestCommonPrefix(arrStr));
     }
 
     public static boolean isPalinArray(int[] arr) {
@@ -48,5 +51,32 @@ public class A {
         }
 
         System.out.println(maxLen);
+    }
+
+     public static String longestCommonPrefix(String arr[]) {
+        // code here
+        StringBuilder sb = new StringBuilder();
+        if(arr.length == 1) return arr[0];
+        
+        int count = 0;
+        String s = arr[0]; // First will see by taking the first String
+        
+        // char c = s.charAt(count);
+        boolean reached = false;
+        for(char ch: s.toCharArray()) {
+        
+            for(int i=0; i<arr.length; i++) {
+                String s1 = arr[i];
+                if(ch != s1.charAt(count)) {
+                    reached = true;
+                    break;
+                }
+            }
+
+            if(reached) break;
+            // We have to increase the count 
+            count++;
+        }
+        return s.substring(0,count);
     }
 }

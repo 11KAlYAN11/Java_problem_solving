@@ -111,7 +111,7 @@ public class HashingPatterns {
        4️⃣ SUBARRAY WITH SUM = K (INTERMEDIATE)
        👉 Prefix Sum + HashMap
        ========================================================= */
-    static boolean subarraySumEqualsK(int[] arr, int k) {
+    static boolean subarraySumEqualsK(int[] arr, int k) { // {1, 4, 20, 3, 10, 5}, k = 33
         HashMap<Integer, Integer> map = new HashMap<>();
 
         int prefixSum = 0;
@@ -133,7 +133,7 @@ public class HashingPatterns {
         return false;
     }
 
-    static boolean subarraySumEqualsK11(int[] arr, int k) {
+    static boolean subarraySumEqualsK11(int[] arr, int k) { // {1, 4, 20, 3, 10, 5}, k = 33
         // will do this in prefixSum way
         HashSet<Integer> set = new HashSet<>(); // Do we actually need HashMap noph we're just checking existance so not needed
         int prefixSum = 0;
@@ -153,8 +153,10 @@ public class HashingPatterns {
     }
 
     // Same above in BruteForce way 0(n)^2
-    static boolean subarraySumEqualsK1(int[] arr, int k) {
+    static boolean subarraySumEqualsK1(int[] arr, int k) { // {1, 4, 20, 3, 10, 5}, k = 33
         // will do this in a brute force way like 1, 1,2  1,2,3   2,  2,3    3
+        // i=1 -> 1 -> 1,4 -> 1,4,20-> 1,4,20,3 -> 1,4,20,3,10 -> 1,2,3,20,10,5 
+        // i= 2 4 -> 4,20 -> 4,20,3 etc...
         
         for(int i=0; i<arr.length; i++) {
             int sum = 0;

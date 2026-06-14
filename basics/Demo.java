@@ -56,6 +56,18 @@ public class Demo {
         Number n2 = 10.0f;
         Number n3 = 10.0;
 
+        String s = "i.like.this.program.very.much";
+        String[] arr = s.split("\\."); 
+        /*
+        split("\\.")
+        split("\\|")
+        split("\\*")
+        split("\\$") */
+        for(String s1: arr) {
+            System.out.println(s1);
+        }
+        // return " ";
+
         /*IMPORTANT CONCEPT:
         ------------------
         Integer, Double, Float, Long etc
