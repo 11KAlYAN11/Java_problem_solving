@@ -1,5 +1,9 @@
 package basics;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 public class Demo {
     public static boolean validParenthisis(String s) {
@@ -46,6 +50,30 @@ public class Demo {
         }
         for(int x: digits){ System.out.print(x);}
     }
+
+    static List<Integer> firstNegInt(int arr[], int k) {
+        // write code here
+        List<Integer> list = new ArrayList<>();
+        // We will add the -ve's to the Queue if invlaid will pop it again
+        Queue<Integer> queue = new LinkedList<>();
+        int n = arr.length;
+        int slow = 0; // 1 -> 2 -> 3 -> 
+        
+        for(int i=0; i<n; i++) { // 1 -> 2 -> 3 -> 4->  
+                    if(arr[i] < 0) queue.add(arr[i]); 
+            
+            if(i-slow+1 == k) { // win size reached
+                if(!queue.isEmpty()) list.add(queue.peek())                                                                         ;
+                else list.add(0);
+                
+                // We have to remove the out going element
+                if(!queue.isEmpty() && arr[slow] == queue.peek()) queue.poll();
+                slow++;
+            }
+        }
+        return list;
+        
+    }
     public static void main(String[] args) {
         String str = "{{}[](){[()]}";
         System.out.println(validParenthisis(str));
@@ -66,6 +94,9 @@ public class Demo {
         for(String s1: arr) {
             System.out.println(s1);
         }
+
+        int[] arrx = {-8,2,3,-6,10};
+        System.out.println(firstNegInt(arrx, 2));
         // return " ";
 
         /*IMPORTANT CONCEPT:
