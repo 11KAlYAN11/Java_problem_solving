@@ -74,6 +74,23 @@ public class Demo {
         return list;
         
     }
+
+    public static boolean isPalinSent(String s) {
+        // code here
+        s = s.toLowerCase().strip();
+        StringBuilder sb = new StringBuilder();
+        // for(char c: s.toCharArray()) {
+        for(int i=0; i<s.length(); i++) {
+            // We have to allow only the alphaNumerics chars
+            // lettrs fron ato z and A to Z and 0 to 9 except this all should be discarded
+            if(Character.isLetterOrDigit(s.charAt(i))) sb.append(s.charAt(i));
+        }
+        
+        // return sb.equals(sb.reverse()); // This will not work bcz this sb always compares the memory ref's so 
+        s = sb.toString();
+        System.out.println("Is this line palindrome?: ");
+        return s.equals(sb.toString()); 
+    }
     public static void main(String[] args) {
         String str = "{{}[](){[()]}";
         System.out.println(validParenthisis(str));
@@ -95,6 +112,7 @@ public class Demo {
             System.out.println(s1);
         }
 
+        System.out.println(isPalinSent("Too hot to hoot"));
         int[] arrx = {-8,2,3,-6,10};
         System.out.println(firstNegInt(arrx, 2));
         // return " ";
