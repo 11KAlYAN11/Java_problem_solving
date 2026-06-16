@@ -199,30 +199,7 @@ public class HashingPatterns {
         return result;
     }
     // countOfUniqueElementsInEachWindow
-    static ArrayList<Integer> countDistinctInWindow1(int[] arr, int k) {
-        ArrayList<Integer> res = new ArrayList<>();
-        HashMap<Integer, Integer> map = new HashMap<>();
-        // we need to track the window with 2 pointses remmber WST is a special 2 pointer techinque with start, stop or slow fast & window maybe size fixed or varible
-        int slow = 0;
-        for(int fast = 0; fast < arr.length; fast++) {
-            map.put(arr[fast], map.getOrDefault(arr[fast], 0) + 1); // Expanding 
-
-            // If window size reached 
-            if(fast - slow + 1 == k) { // The window size is fixed so no need while to shrink
-                res.add(map.size());
-
-                // We have to remove the outgoing element // shrinking
-                map.put(arr[slow], map.get(arr[slow]) -1 );
-                // now we have to remove if value becomes zero
-                if(map.get(arr[slow]) == 0) map.remove(arr[slow]);
-
-                // Note we ahve to expand the idx or slow pointer inside the window only note
-                slow++; // expand the slow pointer internally to make the window valid every time
-
-            }
-        }
-        return res;
-    }
+    
 
     /* =========================================================
        6️⃣ LONGEST SUBSTRING WITHOUT REPEATING CHARACTERS
@@ -278,7 +255,6 @@ public class HashingPatterns {
         int[] windowArr = {1, 2, 1, 3, 4, 2, 3};
         System.out.println("Distinct in windows of size 4:");
         System.out.println(countDistinctInWindow(windowArr, 4));
-        System.out.println(countDistinctInWindow1(windowArr, 4));
         System.out.println();
 
         String s = "geeksforgeeks";

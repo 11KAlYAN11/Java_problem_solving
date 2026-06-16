@@ -65,7 +65,7 @@ public class HashingPatterns1 {
     // -------------------------------
     // Test Case 4: No possible triplet
     // -------------------------------
-    int[] arr4 = {5, 7, 9, 11};
+    int[] arr4 = {5, 7, 9, 11, 1};
     int target4 = 10;
 
     System.out.println("\nHas Triplet (Boolean): " +
@@ -76,6 +76,7 @@ public class HashingPatterns1 {
             tripletValuesUnique(arr4, target4));
     // []
 
+        System.out.println("Find Triplets: ");
         int[] arr11 = {0, -1, 2, -3, 1};
         System.out.println(findTriplets(arr11));
         // Expected: [[0, 1, 4], [2, 3, 4]]
@@ -87,6 +88,9 @@ public class HashingPatterns1 {
         int[] arr33 = {2, 3, 1, 0, 5};
         System.out.println(findTriplets(arr33));
         // Expected: [[]]
+
+        int[] arrf = {0, -1, 2, -3, 1};
+        System.out.println(findTripletsx(arrf, -2));
 }
 
     static boolean hasTwoSumSet(int[] arr, int target) {
@@ -229,7 +233,6 @@ public class HashingPatterns1 {
     public static boolean hasThreeSumCount(int[] arr, int target) {
         // As here we do need count so will go for hash set
         // As 3 pairs sum so will fix the arr[i] and j will run in side
-        HashSet<Integer> seen = new HashSet<>(); // just for boolean value so set
         // boolean hasTriplet = false;
         int n = arr.length;
 
@@ -239,6 +242,9 @@ public class HashingPatterns1 {
             // c = -a-b
             // a+b+c = target
             // c = target -a -b; as maths 
+            // For every i the set has to be re intialized (if not all values to mugged up gonna off)
+            HashSet<Integer> seen = new HashSet<>(); // just for boolean value so set
+
             for(int j=i+1; j<n; j++) { // As j every time start from just before ith element
                 // int need = - arr[i] - arr[j]; // By default 0 was considered
                 int need = target - arr[i] - arr[j]; // If target was not zero
@@ -255,7 +261,7 @@ public class HashingPatterns1 {
     public static List<List<Integer>> tripletValuesUnique(int[] arr, int tar) {
         // Will take nested set<List<>> bcz for inner list we have to sort so order matters, for outer we need such unique pairs
         Set<List<Integer>> set = new HashSet<>();
-        //Now outer loop stop just before the last 3 ele's so
+        //Now outer loop stop just before the last 2 ele's so
         int n= arr.length;
 
         for(int i=0; i<n-2; i++) {
@@ -339,6 +345,41 @@ public class HashingPatterns1 {
 
     return res;
 }
+
+    public static ArrayList<ArrayList<Integer>> findTripletsx(int[] arr, int k) {
+        // Here they are not just asking for has triplet found or not they wan tall the
+        // We have to strore
+        // But map has to re-intialized for every so inside ith loop
+        int n = arr.length;
+        ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+        
+        for(int i=0; i<n-2; i++) { // From i we should have 2 ele's leftover so n-2
+            
+            // Intilaize the Map
+            // On map key = ele and value side list for storing all the valid indices
+            HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
+            
+            for(int j=i+1; j<n; j++) {
+                int need = k - arr[i] - arr[j];
+                
+                if(map.containsKey(need)) {
+                    // add that valid pair to res
+                    
+                    for(int k1: map.get(need)) {
+                        // We don't need to sort it directly add order wide
+                        res.add(new ArrayList<>(Arrays.asList(i,k1,j)));
+                    }
+                }
+                
+                if(!map.containsKey(arr[j])) {
+                    map.put(arr[j], new ArrayList<>());
+                }
+                map.get(arr[j]).add(j); // on jth list we are addign the indices
+            }
+        }
+        return res;
+    }
+
 
     /*      2️⃣ COMPLETE DRY RUN (IMPORTANT 🔥)
 
