@@ -119,6 +119,8 @@ public class PrefixSumPatterns {
         prefixSum - k = 0
 
         If 0 is not in map → we MISS this valid subarray
+
+        So What if first ele in arr == k in that case arr[0] - k == 0 Which is valid so arr[0] - k = 0 bcz both are equal so we store the same zero to make sure won't miss the first valid one
     */
     map.put(0, 1); // 🔥 WHY map.put(0,1) IS NON-NEGOTIABLE
 
@@ -467,6 +469,127 @@ public class PrefixSumPatterns {
         */
 }
 
+ public static int subarraySumDivisibleByK(int[] arr, int k) {
+
+    /*
+     * PROBLEM:
+     * Count all subarrays whose sum is divisible by K.
+     *
+     * KEY OBSERVATION:
+     *
+     * Let:
+     * prefixSum[j] = sum till j
+     * prefixSum[i] = sum till i
+     *
+     * Subarray sum = prefixSum[j] - prefixSum[i]
+     *
+     * We need:
+     * (prefixSum[j] - prefixSum[i]) % k == 0
+     *
+     * Therefore:
+     * prefixSum[j] % k == prefixSum[i] % k
+     *
+     * So instead of storing prefix sums,
+     * we store REMAINDERS and count how many
+     * times the same remainder has appeared.
+     *
+     * --------------------------------------------------
+     * COMMON MISTAKES I MADE:
+     * --------------------------------------------------
+     *
+     * 1) Stored prefixSum as key instead of remainder.
+     *
+     * Wrong:
+     * map.put(prefixSum, ...)
+     *
+     * Correct:
+     * map.put(rem, ...)
+     *
+     * --------------------------------------------------
+     *
+     * 2) Negative remainder issue in Java.
+     *
+     * Java:
+     * -1 % 5 = -1
+     *
+     * But mathematically:
+     * -1 mod 5 = 4
+     *
+     * Therefore normalize:
+     *
+     * rem = ((prefixSum % k) + k) % k
+     *
+     * --------------------------------------------------
+     *
+     * 3) Applied normalization only during lookup.
+     *
+     * Wrong:
+     * containsKey(normalizedRem)
+     * put(rawRem)
+     *
+     * Same remainder class becomes different keys.
+     *
+     * Must use SAME rem everywhere:
+     * containsKey(rem)
+     * get(rem)
+     * put(rem)
+     *
+     * --------------------------------------------------
+     *
+     * 4) Integer overflow.
+     *
+     * Hidden test cases contain very large numbers.
+     *
+     * prefixSum can exceed Integer.MAX_VALUE.
+     *
+     * Therefore:
+     * long prefixSum
+     *
+     * count can also become huge.
+     *
+     * Therefore:
+     * long count
+     *
+     * --------------------------------------------------
+     *
+     * PATTERN RECOGNITION:
+     *
+     * Subarray Sum = 0
+     * -> Same Prefix Sum
+     *
+     * Subarray Sum = K
+     * -> prefixSum - K
+     *
+     * Subarray Sum Divisible By K
+     * -> Same Remainder
+     */
+
+    HashMap<Integer, Integer> map = new HashMap<>();
+
+    long prefixSum = 0;
+    long count = 0;
+
+    // Handles subarrays starting from index 0
+    map.put(0, 1);
+
+    for (int num : arr) {
+
+        prefixSum += num;
+
+        int rem = (int)(((prefixSum % k) + k) % k);
+
+        // All previous occurrences of this remainder
+        // form valid subarrays ending here
+        if (map.containsKey(rem)) {
+            count += map.get(rem);
+        }
+
+        map.put(rem, map.getOrDefault(rem, 0) + 1);
+    }
+
+    return (int) count;
+}
+
 
     /* =====================================================
        MAIN METHOD — TEST EVERYTHING
@@ -487,5 +610,8 @@ public class PrefixSumPatterns {
 
         System.out.println("Longest subarray with sum 3: "
                 + longestSubarrayWithSum(arr2, 3)); // length // 
+
+        int[] arr3 = {4, 5, 0, -2, -3, 1};
+        System.out.println("Subarray Sum Divisible By K: "+ subarraySumDivisibleByK(arr3, 5));        
     }
 }
