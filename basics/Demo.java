@@ -22,6 +22,24 @@ public class Demo {
                 return s.isEmpty();
             }
         } */
+
+            // Traditional approch
+        /* Stack<Character> s1 = new Stack<>();    
+        for(char c: s.toCharArray()) {
+            if(c=='(' || c == '{' || c == '[') {
+                s1.push(c);
+            }
+
+            else {
+                if(s1.isEmpty()) return false;
+                char top = s1.pop();
+                if(c == ')' && top != '(') return false;
+                if(c == ']' && top != '[') return false;
+                if(c == '}' && top != '{') return false;
+            }
+        } 
+        return s1.isEmpty();   */
+        
        //method 02
        Stack<Character> stack = new Stack<>();
        for(char c: s.toCharArray()) {

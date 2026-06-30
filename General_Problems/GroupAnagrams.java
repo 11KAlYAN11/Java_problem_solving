@@ -4,12 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GroupAnagrams { // GroupAnagrams
-    public static ArrayList<ArrayList<String>> anagrams(String[] arr) {
-        // code here
-        ArrayList<ArrayList<String>> res = new ArrayList<>();
-        
-        HashMap<String, Integer> map = new HashMap<>(); // bcz in map will store hash: count 
-        
+    public static ArrayList<ArrayList<String>> anagrams(String[] arr) {        
         // this map1 is for 2nd method
         HashMap<String, ArrayList<String>> map1 = new HashMap<>();
         

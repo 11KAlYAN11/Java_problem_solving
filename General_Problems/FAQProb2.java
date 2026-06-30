@@ -68,7 +68,7 @@ public class FAQProb2 {
     }
     static void armstrongNumber(int num) {
         // num = sum of (each digit ^ number_of_digits)
-        String numStr = Integer.toString(num);
+        /* String numStr = Integer.toString(num);
         int no_of_digits = numStr.length(); // 3 -> 153
 
         // int nodigits = String.valueOf(num).length(); // simple one
@@ -79,7 +79,16 @@ public class FAQProb2 {
             // Here we are getting the loosy conversion issue while converting from double to int so rounf and int typecasting we did
             sum = sum + (int)Math.round(Math.pow(digit, no_of_digits)); // (1,3) , (5, 3), (3, 3) 1 + 125 + 27 = 153
         }
-        System.out.println("is ArmstrongNum: "+(sum == num));
+        System.out.println("is ArmstrongNum: "+(sum == num)); */
+
+        String s1 = Integer.toString(num);
+        int len = s1.length();
+        int sum = 0;
+
+        for(char c : s1.toCharArray()) {
+            int n1 = c - '0';
+            sum += Math.round(Math.pow(n1, len));
+        }
     }
 
     static void armstrongNumber1(int num) {

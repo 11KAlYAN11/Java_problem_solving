@@ -260,11 +260,9 @@ public class DemoPPS1 {
                     ArrayList<Integer> pair =
                             new ArrayList<>();
 
-                    pair.add(
-                            Math.min(arr[i], arr[j]));
+                    pair.add(Math.min(arr[i], arr[j]));
 
-                    pair.add(
-                            Math.max(arr[i], arr[j]));
+                    pair.add(Math.max(arr[i], arr[j]));
 
                     uniquePairs.add(pair);
                 }
