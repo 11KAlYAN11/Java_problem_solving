@@ -56,14 +56,27 @@ public class PPS1 {
         4) Controller
         @RestController
         @RequestMapping("/students")
+        @RequiredArgsConstructor
         public class StudentController {
+
             private final StudentService service;
 
             @GetMapping
             public ResponseEntity<List<Student>> getStudents() {
                 return ResponseEntity.ok(service.getStudents());
             }
-        }
+
+            @PutMapping("/{id}")
+            public ResponseEntity<Student> updateStudent(
+                    @PathVariable Integer id,
+                    @RequestBody Student student) {
+
+                Student updatedStudent = service.updateStudent(id, student);
+
+                return ResponseEntity.ok(updatedStudent);
+            }
+
+}
 
 
          */
