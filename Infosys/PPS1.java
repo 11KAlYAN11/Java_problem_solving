@@ -35,22 +35,23 @@ public class PPS1 {
         @Service
         @RequiredArgsConstructor
         public class StudentService {
-            private final StudentRepository repository
 
-            public List<Student> getStudent() {
-                return repository.finaAll();
+            private final StudentRepository repository;
+
+            public List<Student> getStudents() {
+                return repository.findAll();
             }
 
             public Student updateStudent(Integer id, Student dto) {
+
                 Student student = repository.findById(id)
-                .orElseThrown();
+                        .orElseThrow(() -> new RuntimeException("Student not found"));
 
                 student.setName(dto.getName());
-                student.setGrade(dto.setGrade());
+                student.setGrade(dto.getGrade());
 
-                return reposotory.save(student);
+                return repository.save(student);
             }
-
         }
 
         4) Controller
