@@ -202,6 +202,41 @@ public class EmployeeCollectionPractice {
             .thenComparingInt(e -> e.id)
             // First check with name -> salary -> id for sorting
          );
+
+         /*
+         Multiple Fields
+         employees.stream()
+               .sorted(
+                        Comparator
+                                 .comparing(Employee::getDepartment)
+                                 .thenComparingDouble(Employee::getSalary)
+                                 .thenComparingInt(Employee::getAge)
+               )
+               .toList();
+
+
+               Mixed Ordering
+
+         Department ASC
+
+         Salary DESC
+
+         Age ASC
+
+         employees.stream()
+               .sorted(
+                        Comparator
+                                 .comparing(Employee::getDepartment)
+                                 .thenComparing(
+                                       Comparator.comparingDouble(Employee::getSalary)
+                                                   .reversed()
+                                 )
+                                 .thenComparingInt(Employee::getAge)
+               )
+               .toList();
+
+         Notice that reversed() is applied only to the salary comparator.
+          */
          System.out.println("Name1 Sorted Emp's: ");
          nameSortedEmps1.addAll(uniqueEmps);
          nameSortedEmps1.forEach(System.out::println);
