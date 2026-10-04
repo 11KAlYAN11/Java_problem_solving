@@ -230,7 +230,7 @@ public class GreedyEx1 {
      * ============================================================
      */
     public static boolean jumpGameI(int[] jumpLengths) {
-
+        // arr = [2, 3, 1, 1, 4]
         int maxReach = 0;
 
         for (int currentIndex = 0;
@@ -259,10 +259,41 @@ public class GreedyEx1 {
             if (maxReach >= jumpLengths.length - 1) {
                 return true;
             }
+
+            /*int maxReach = 0;
+
+            for (int i = 0; i < arr.length; i++) {
+
+                if (i > maxReach) {
+                    return false;
+                }
+
+                maxReach = Math.max(maxReach, i + arr[i]);
+
+                if (maxReach >= arr.length - 1) {
+                    return true;
+                }
+            }
+
+            return true;*/
         }
 
         return true;
     }
+    public static boolean jumpGameOne(int[] nums) {
+        // arr = [2, 3, 1, 1, 4]
+        int n = nums.length;
+        int maxReach = 0;
+        for(int i=0; i<n; i++) {
+            // at anypoint the maxReach goes beyond
+            if(i > maxReach) return false;
+
+            maxReach = Math.max(maxReach, i + nums[i]);
+            if(maxReach >= n-1) return true;
+        }
+        return false;
+    }
+
 
 
     /*
@@ -383,6 +414,28 @@ public class GreedyEx1 {
 
         return jumps;
     }
+    public static int jumpGameTwo(int[] nums) {
+        // arr = [2, 3, 1, 1, 4]
+        int n = nums.length;
+        int curEnd = 0;
+        int maxReach = 0;
+        int jump = 0;
+
+        for(int i=0; i< n-1; i++) {
+            // at any point if we can't we from curIndex it's false
+            if(i > maxReach) return -1;
+
+            maxReach = Math.max(maxReach, i + nums[i]);
+
+            // we are about to be run out off inner limit we must take a jump
+            if(i == curEnd) {
+                jump++;
+                curEnd = maxReach; // next maxReach will be our curEnd becomes
+            }
+
+        }
+        return jump;
+    }
 
 
     /*
@@ -440,6 +493,13 @@ public class GreedyEx1 {
                 "Jump Game I -> " + canReachEnd
         );
 
+        boolean canReachEndOne =
+                jumpGameOne(jumpArray);
+
+        System.out.println(
+                "Jump Game I -> " + canReachEndOne
+        );
+
 
         // --------------------------------------------------------
         // 4. Jump Game II
@@ -450,6 +510,13 @@ public class GreedyEx1 {
 
         System.out.println(
                 "Jump Game II -> " + minimumJumps
+        );
+
+        int minimumJumpsTwo =
+                jumpGameTwo(jumpArray);
+
+        System.out.println(
+                "Jump Game II -> " + minimumJumpsTwo
         );
     }
 }
