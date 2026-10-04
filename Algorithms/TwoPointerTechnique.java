@@ -82,6 +82,12 @@ public class TwoPointerTechnique {
             }
         }
 
+        for(int read=1; read < nums.length; read++) {
+            if(nums[read] != nums[read-1]) {
+                nums[write++] = nums[read];
+            }
+        }
+
         // We can also just add to Set to get rid of duplicates
         // But this was inplace removing the duplicates
 
