@@ -409,6 +409,10 @@ public class GreedyEx1 {
                  * up to maxReach.
                  */
                 currentEnd = maxReach;
+
+                // If we're at the current jump boundary and cannot extend our reach,
+                // no further progress is possible, so the destination is unreachable.
+                // if (maxReach == curMax) return -1;
             }
         }
 
@@ -431,6 +435,10 @@ public class GreedyEx1 {
             if(i == curEnd) {
                 jump++;
                 curEnd = maxReach; // next maxReach will be our curEnd becomes
+
+                // If we're at the current jump boundary and cannot extend our reach,
+                // no further progress is possible, so the destination is unreachable.
+                // if (maxReach == curMax) return -1;
             }
 
         }

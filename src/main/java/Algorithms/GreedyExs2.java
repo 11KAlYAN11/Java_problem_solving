@@ -615,6 +615,8 @@ public class GreedyExs2 {
     public static int activitySelection(
             int[] start,
             int[] end) {
+                // int[] start = {1, 3, 0, 5, 8, 5};
+                // int[] end = {2, 4, 6, 7, 9, 9};
 
         int n = start.length;
 
@@ -667,6 +669,37 @@ public class GreedyExs2 {
         }
 
         return selectedActivities;
+    }
+    public static int activitySelection1(int[] start, int[] end) {
+        // int[] start = {1, 3, 0, 5, 8, 5};
+        // int[] end = {2, 4, 6, 7, 9, 9};
+
+        // As per the non overlapping greedy template I have to sort by ending -> here i can build 2d array with start and end them check 2nd start >= pre end if so count and update lastend
+        int n1 = start.length;
+        int[][] activities = new int[n1][2]; // in each row only start and end column so
+        int meets = 1; // Always the first activity or meeting won't overlap so 1
+
+        // Lets build the activities array from start and end
+        for(int i=0; i<n1; i++) {
+            activities[i][0] = start[i];
+            activities[i][1] = end[i];
+        }
+        // Lets sort the activities by end time
+        Arrays.sort(
+            activities,
+            (a,b) -> Integer.compare(a[1], b[1])
+        );
+
+        int lastEnd = activities[0][1]; 
+
+        for(int i=1; i<n1-1; i++) { // len of n1 == n2 (as when meet starts it has to close at one point)
+            if(activities[i][0] >= lastEnd) { // At any point the next starting time >= last end to non - overlap
+                meets++; // meets count get increased
+                lastEnd = activities[i][1]; // when ever non over lap then update lastEnd too // note when overlaps it will alwasy at prev valid end
+
+            }
+        }
+        return meets;
     }
 
 
@@ -739,6 +772,11 @@ public class GreedyExs2 {
         System.out.println(
                 "L14 Activity Selection: "
                         + activitySelection(start, end)
+        );
+
+        System.out.println(
+                "L14 Activity Selection1: "
+                        + activitySelection1(start, end)
         );
     }
 }
