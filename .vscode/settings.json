@@ -1,0 +1,11 @@
+{
+    // Re-import pom.xml changes without asking
+    "java.configuration.updateBuildConfiguration": "automatic",
+    // Code Runner (PowerShell terminal): compile against src/main/java and run Package.Class.
+    // Its default command ignores packages, which gives "Could not find or load main class".
+    "code-runner.runInTerminal": true,
+    "code-runner.executorMap": {
+        "java": "$jd = $dirWithoutTrailingSlash + '\\'; $ji = $jd.IndexOf('\\src\\main\\java\\', [StringComparison]::OrdinalIgnoreCase); if ($ji -lt 0) { cd $jd; javac -encoding UTF-8 '$fileName'; if ($?) { java '$fileNameWithoutExt' } } else { $jr = $jd.Substring(0, $ji); $jp = $jd.Substring($ji + 15).TrimEnd('\\').Replace('\\', '.'); $jc = if ($jp) { $jp + '.$fileNameWithoutExt' } else { '$fileNameWithoutExt' }; cd $jr; javac -encoding UTF-8 -d target/classes -sourcepath src/main/java ($jd + '$fileName'); if ($?) { java -cp target/classes $jc } }"
+    },
+    "files.encoding": "utf8"
+}

@@ -14,7 +14,9 @@
 # IDE files
 .idea/
 *.iml
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
 .settings/
 .classpath
 .project
@@ -37,8 +39,3 @@ dist/
 *.tmp
 *.bak
 *.backup
-
-# Python scripts (optional - remove if you want to commit these)
-# fix_packages.py
-# fix_existing_packages.py
-

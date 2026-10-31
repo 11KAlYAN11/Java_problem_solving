@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+        This file is what lets IntelliJ / VS Code run and debug any single file.
+        It tells the IDE: sources live in src/main/java, use Java 17, UTF-8.
+        No dependencies, nothing to install - the IDEs ship with Maven built in.
+    -->
+    <groupId>practice</groupId>
+    <artifactId>Java_problem_solving</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <excludes>
+                        <!--
+                            Virtual threads need JDK 21+, the installed JDK is 17.
+                            After installing JDK 21: set maven.compiler.release to 21 and delete this exclude.
+                        -->
+                        <exclude>OPPS_ADV/VirtualThread*.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
