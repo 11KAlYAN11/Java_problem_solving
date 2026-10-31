@@ -22,5 +22,6 @@ The IDE compiles the **whole** repo before running a single file, so one broken 
 
 1. Code lives in `src/main/java/<Topic>/` and starts with `package <Topic>;`. Create files with **New → Java Class** so the IDE writes this line for you.
 2. A helper class used by only one program goes **inside** that program's class, e.g. `static class Node { ... }`. Two top-level classes with the same name in one folder cause a "duplicate class" error, and then nothing runs. This was the old problem.
-3. If a file is half-finished and doesn't compile, comment out the broken part before moving on.
-4. `OPPS_ADV/VirtualThread*.java` need JDK 21. `pom.xml` skips them while JDK 17 is installed (the steps to switch are in the comment there).
+3. The file name must match its `public class`: `public class GreedyExs3` goes in `GreedyExs3.java`. To rename, use **Refactor → Rename** on the class so the IDE renames the file too.
+4. If a file is half-finished and doesn't compile, comment out the broken part before moving on.
+5. `OPPS_ADV/VirtualThread*.java` need JDK 21. `pom.xml` skips them while JDK 17 is installed (the steps to switch are in the comment there).
